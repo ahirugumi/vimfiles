@@ -1,29 +1,21 @@
-"-------------------------------------------------------------------------------
-" エンコーディング関連 Encoding
-"-------------------------------------------------------------------------------
+"=========================================================================================
+" エンコーディング設定
+"=========================================================================================
 set ffs=unix,dos,mac  " 改行文字
 "-------for linux and mac---------
 set encoding=utf-8    " デフォルトエンコーディング
 "-------------------------
 "set encoding=cp932    " デフォルトエンコーディング
 
-" 文字コード認識はbanyan/recognize_charcode.vimへ
-
-" cvsの時は文字コードをeuc-jpに設定
-autocmd FileType cvs :set fileencoding=euc-jp
-" 以下のファイルの時は文字コードをutf-8に設定
-autocmd FileType svn :set fileencoding=utf-8
+" 以下、全て強制的にUTF-8
 autocmd FileType js :set fileencoding=utf-8
 autocmd FileType css :set fileencoding=utf-8
 autocmd FileType html :set fileencoding=utf-8
 autocmd FileType xml :set fileencoding=utf-8
 autocmd FileType java :set fileencoding=utf-8
-autocmd FileType scala :set fileencoding=utf-8
+autocmd FileType svn :set fileencoding=utf-8
 
-" ワイルドカードで表示するときに優先度を低くする拡張子
-set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.ilg,.inx,.out,.toc
-
-" 指定文字コードで強制的にファイルを開く
+" 文字コードを指定して開く
 command! Cp932 edit ++enc=cp932
 command! Eucjp edit ++enc=euc-jp
 command! Iso2022jp edit ++enc=iso-2022-jp

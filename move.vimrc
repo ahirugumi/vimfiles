@@ -1,8 +1,10 @@
-"-------------------------------------------------------------------------------
-" 移動設定 Move
-"-------------------------------------------------------------------------------
+"=========================================================================================
+" 移動設定
+"=========================================================================================
+" ブロック選択で自由に移動
+set virtualedit+=block
 
-" カーソルを表示行で移動する。論理行移動は<C-n>,<C-p>
+" カーソルを表示行で移動
 nnoremap h <Left>
 nnoremap j gj
 nnoremap k gk
@@ -10,95 +12,48 @@ nnoremap l <Right>
 nnoremap <Down> gj
 nnoremap <Up>   gk
 
-" 0, 9で行頭、行末へ
-nmap 1 0
-nmap 0 ^
-nmap 9 $
-
-" insert mode での移動
-inoremap  <C-e> <END>
-inoremap  <C-a> <HOME>
-" インサートモードでもhjklで移動（Ctrl押すけどね）
+" インサートモードでの移動
+inoremap <C-e> <END>
+inoremap <C-a> <HOME>
 inoremap <C-j> <Down>
 inoremap <C-k> <Up>
 inoremap <C-h> <Left>
 inoremap <C-l> <Right>
 
-"<space>j, <space>kで画面送り
-noremap <Space>j <C-f>
-noremap <Space>k <C-b>
+" 0, 9で行頭、行末へ
+nmap 1 0
+nmap 0 ^
+nmap 9 $
 
-" spaceで次のbufferへ。back-spaceで前のbufferへ
-nmap <Space><Space> ;MBEbn<CR>
-nmap <BS><BS> ;MBEbp<CR>
+" insert mode でjjでesc
+inoremap jj <Esc>
 
-" F2で前のバッファ
+" F2で前バッファ
 map <F2> <ESC>;bp<CR>
-" F3で次のバッファ
+" F3で次バッファ
 map <F3> <ESC>;bn<CR>
-" F4でバッファを削除する
+" F4でバッファ削除
 map <F4> <ESC>:bnext \| bdelete #<CR>
 command! Bw :bnext \| bdelete #
 
-"フレームサイズを怠惰に変更する
-map <kPlus> <C-W>+
-map <kMinus> <C-W>-
-
-" 前回終了したカーソル行に移動
-autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g`\"" | endif
+"<space>jで次の画面。<space>kで前の画面。
+noremap <Space>j <C-f>
+noremap <Space>k <C-b>
 
 " 最後に編集された位置に移動
 nnoremap gb '[
-nnoremap gp ']
+nnoremap gn ']
 
 " 対応する括弧に移動
 nnoremap ( %
 nnoremap ) %
 
-" 最後に変更されたテキストを選択する
-nnoremap gc  `[v`]
-vnoremap gc <C-u>normal gc<Enter>
-onoremap gc <C-u>normal gc<Enter>
-
-" カーソル位置の単語をyankする
+" カーソル位置の単語をヤンク
 nnoremap vy vawy
 
-" 矩形選択で自由に移動する
-set virtualedit+=block
-
-"ビジュアルモード時vで行末まで選択
+" ビジュアルモード時vで行末まで選択
 vnoremap v $h
 
-" " CTRL-hjklでウィンドウ移動
-" nnoremap <C-j> <C-w>j
-" nnoremap <C-k> <C-w>k
-" nnoremap <C-l> <C-w>l
-" nnoremap <C-h> <C-w>h
+" 自動的に前回終了したカーソル行に移動
+autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g`\"" | endif
 
-" git-diff-aware version of gf commands.
-" http://labs.timedia.co.jp/2011/04/git-diff-aware-gf-commands-for-vim.html
-nnoremap <expr> gf  <SID>do_git_diff_aware_gf('gf')
-nnoremap <expr> gF  <SID>do_git_diff_aware_gf('gF')
-nnoremap <expr> <C-w>f  <SID>do_git_diff_aware_gf('<C-w>f')
-nnoremap <expr> <C-w><C-f>  <SID>do_git_diff_aware_gf('<C-w><C-f>')
-nnoremap <expr> <C-w>F  <SID>do_git_diff_aware_gf('<C-w>F')
-nnoremap <expr> <C-w>gf  <SID>do_git_diff_aware_gf('<C-w>gf')
-nnoremap <expr> <C-w>gF  <SID>do_git_diff_aware_gf('<C-w>gF')
-
-function! s:do_git_diff_aware_gf(command)
-  let target_path = expand('<cfile>')
-  if target_path =~# '^[ab]/'  " with a peculiar prefix of git-diff(1)?
-    if filereadable(target_path) || isdirectory(target_path)
-      return a:command
-    else
-      " BUGS: Side effect - Cursor position is changed.
-      let [_, c] = searchpos('\f\+', 'cenW')
-      return c . '|' . 'v' . (len(target_path) - 2 - 1) . 'h' . a:command
-    endif
-  else
-    return a:command
-  endif
-endfunction
-
-" insert mode でjjでesc
-inoremap jj <Esc>

@@ -1,23 +1,36 @@
-"-------------------------------------------------------------------------------
-"" 基本設定 Basics
-"-------------------------------------------------------------------------------
+"=========================================================================================
+" 基本設定
+"=========================================================================================
 let mapleader = ","              " キーマップリーダー
-set scrolloff=5                  " スクロール時の余白確保
-set textwidth=0                  "一行に長い文章を書いていても自動折り返しをしない
-set nobackup                     " バックアップ取らない
-set autoread                     " 他で書き換えられたら自動で読み直す
-set noswapfile                   " スワップファイル作らない
-set hidden                       " 編集中でも他のファイルを開けるようにする
-set backspace=indent,eol,start   " バックスペースでなんでも消せるように
-set formatoptions=lmoq           "テキスト整形オプション，マルチバイト系を追加
+set ambiwidth=double             " 全角の記号とかあってもカーソルがズレないようにする。+multi_byteでコンパイルされていないと動作しない。
+set textwidth=0                  " 自動折り返ししない
+set scrolloff=5                  " 余白確保
+set nobackup                     " バックアップなし
+set noswapfile                   " スワップなし
+set autoread                     " 開いているファイルが書き換えられたら自動的に開き直す
+set hidden                       " 編集中でもファイルを開けるようにする
+set backspace=indent,eol,start   " バックスペースで色々消せる用にする
+set formatoptions=lmoq           " 自動整形ON
 set vb t_vb=                     " ビープをならさない
-set browsedir=buffer             " Exploreの初期ディレクトリ
-set whichwrap=b,s,h,l,<,>,[,]    " カーソルを行頭、行末で止まらないようにする
+set whichwrap=b,s,h,l,<,>,[,]    " カーソルが行の一番最後で止まらないようにする
 set showcmd                      " コマンドをステータス行に表示
 set showmode                     " 現在のモードを表示
 set viminfo='50,<1000,s100,\"50  " viminfoファイルの設定
 set modelines=0                  " モードラインは無効
-set ambiwidth=double             " □や○の文字があってもカーソル位置がずれないようにする
+set browsedir=buffer             " Exploreの初期ディレクトリをバッファと同じにする
+
+" OSのクリップボードを使用する。
+" vimが+clipboardでコンパイルされていないと利用できない。
+set clipboard+=unnamed
+"--------for linux-----------
+"set clipboard=unnamedplus
+"----------------------------
+" ターミナルでマウスを使用できるようにする
+set mouse=a
+set guioptions+=a
+set ttymouse=xterm2
+
+imap <C-v>  <ESC>"*pa  " 挿入モードでCtrl+kを押すとクリップボードの内容を貼り付けられるようにする
 
 ""===========for linux====================
 "" PythonによるIBus制御指定
@@ -38,22 +51,11 @@ set ambiwidth=double             " □や○の文字があってもカーソル
 "set timeout timeoutlen=3000 ttimeoutlen=100
 ""=====================================================
 
-"OSのクリップボードを使用する
-set clipboard+=unnamed
-"--------for linux-----------
-"set clipboard=unnamedplus
-"----------------------------
-" ターミナルでマウスを使用できるようにする
-set mouse=a
-set guioptions+=a
-set ttymouse=xterm2
-" 挿入モードでCtrl+kを押すとクリップボードの内容を貼り付けられるようにする "
-imap <C-v>  <ESC>"*pa
-
 " vimrc, gvimrcの修正
 nnoremap <silent> <Space>ev  :<C-u>edit $MYVIMRC<CR>
 nnoremap <silent> <Space>eg  :<C-u>edit $MYGVIMRC<CR>
 
+" ヘルプファイル
 set helpfile=$VIMRUNTIME/doc/help.txt
 
 " ファイルタイプ判定をon
@@ -62,34 +64,20 @@ filetype plugin on
 "-------------------------------------------------------------------------------
 " タグ関連 Tags
 "-------------------------------------------------------------------------------
-" set tags
+" タグセット
 if has("autochdir")
-  " 編集しているファイルのディレクトリに自動で移動
-  set autochdir
+  set autochdir  " 編集中のファイルのディレクトリに移動
   set tags=tags;
 else
   set tags=./tags,./../tags,./*/tags,./../../tags,./../../../tags,./../../../../tags,./../../../../../tags
 endif
 
-set notagbsearch
-
-"<C-t>はscreentとかぶるので削除
-"tab pagesを使い易くする
-" nnoremap <C-t>  <Nop>
-" nnoremap <C-t>n  ;<C-u>tabnew<CR>
-" nnoremap <C-t>c  ;<C-u>tabclose<CR>
-" nnoremap <C-t>o  ;<C-u>tabonly<CR>
-" nnoremap <C-t>j  ;<C-u>execute 'tabnext' 1 + (tabpagenr() + v:count1 - 1) % tabpagenr('$')<CR>
-" nnoremap <C-t>k  gT
-
 "tags-and-searchesを使い易くする
-nnoremap t  <Nop>
-"「飛ぶ」
-nnoremap tt  <C-]>
-"「進む」
-nnoremap tj  ;<C-u>tag<CR>
-"「戻る」
-nnoremap tk  ;<C-u>pop<CR>
-"履歴一覧
-nnoremap tl  ;<C-u>tags<CR>
+nnoremap t <Nop>
+nnoremap tt <C-]>  " ジャンプ
+nnoremap tj;<C-u>tag<CR>  " 進む
+nnoremap tk;<C-u>pop<CR>  " 戻る
+nnoremap tl;<C-u>tags<CR> " 履歴一覧
 
+" bug??
+set notagbsearch

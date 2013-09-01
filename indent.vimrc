@@ -1,23 +1,21 @@
-"-------------------------------------------------------------------------------
-" インデント Indent
-"-------------------------------------------------------------------------------
-set autoindent   " 自動でインデント
-"set paste        " ペースト時にautoindentを無効に(onにするとautocomplpop.vimが動かない)
-set smartindent  " 新しい行を開始したときに、新しい行のインデントを現在行と同じ量にする。
-set cindent      " Cプログラムファイルの自動インデントを始める
+"=========================================================================================
+" インデント設定
+"=========================================================================================
+set autoindent   " 自動インデント
+set smartindent  " 新たな行を追加した際にインデントを同じ量にする
+set cindent      " Cの自動インデント
+set paste        " ペースト時に自動インデント
 
-" softtabstopはTabキー押し下げ時の挿入される空白の量，0の場合はtabstopと同じ，BSにも影響する
+" softtabstop:Tabキーを押した時の空白の量
 set tabstop=2 shiftwidth=2 softtabstop=0
 
 if has("autocmd")
-  "ファイルタイプの検索を有効にする
+  " ファイルタイプの検索を有効
   filetype plugin on
-  "そのファイルタイプにあわせたインデントを利用する
+  " ファイルタイプ別のインデントを利用
   filetype indent on
-  " これらのftではインデントを無効に
-  "autocmd FileType php filetype indent off
-
   autocmd FileType apache     setlocal sw=4 sts=4 ts=4 et
+  autocmd FileType ruby       setlocal sw=2 sts=2 ts=2 et
   autocmd FileType aspvbs     setlocal sw=4 sts=4 ts=4 et
   autocmd FileType c          setlocal sw=4 sts=4 ts=4 et
   autocmd FileType cpp        setlocal sw=4 sts=4 ts=4 et
@@ -31,8 +29,6 @@ if has("autocmd")
   autocmd FileType perl       setlocal sw=4 sts=4 ts=4 et
   autocmd FileType php        setlocal sw=4 sts=4 ts=4 et
   autocmd FileType python     setlocal sw=4 sts=4 ts=4 et
-  autocmd FileType ruby       setlocal sw=2 sts=2 ts=2 et
-  autocmd FileType haml       setlocal sw=2 sts=2 ts=2 et
   autocmd FileType sh         setlocal sw=4 sts=4 ts=4 et
   autocmd FileType sql        setlocal sw=4 sts=4 ts=4 et
   autocmd FileType vb         setlocal sw=4 sts=4 ts=4 et
@@ -41,6 +37,4 @@ if has("autocmd")
   autocmd FileType xhtml      setlocal sw=4 sts=4 ts=4 et
   autocmd FileType xml        setlocal sw=4 sts=4 ts=4 et
   autocmd FileType yaml       setlocal sw=2 sts=2 ts=2 et
-  autocmd FileType zsh        setlocal sw=4 sts=4 ts=4 et
-  autocmd FileType scala      setlocal sw=2 sts=2 ts=2 et
 endif

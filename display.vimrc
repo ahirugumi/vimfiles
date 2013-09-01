@@ -1,10 +1,11 @@
-"-------------------------------------------------------------------------------
-" カラー関連 Colors
-"-------------------------------------------------------------------------------
+"=========================================================================================
+" 表示設定
+"=========================================================================================
 
-"colorscheme wombat
+" カラースキーマ
+" colorscheme wombat
 colorschem solarized
-set background=light
+set background=dark
 
 " ターミナルタイプによるカラー設定
 " UbuntuのGnome端末は、xtermを返してくる。環境変数にxterm-256colorとかをちゃん
@@ -23,46 +24,19 @@ elseif &term =~ "xterm-color"
   set t_Sf=[3%dm
   set t_Sb=[4%dm
 endif
-"ポップアップメニューのカラーを設定
-"hi Pmenu guibg=#666666
-"hi PmenuSel guibg=#8cd0d3 guifg=#666666
-"hi PmenuSbar guibg=#333333
 
 " ハイライト on
 syntax enable
-" 補完候補の色づけ for vim7
-" hi Pmenu ctermbg=255 ctermfg=0 guifg=#000000 guibg=#999999
-" hi PmenuSel ctermbg=blue ctermfg=black
+" 補完候補の選択色
 hi PmenuSel cterm=reverse ctermfg=33 ctermbg=222 gui=reverse guifg=#3399ff guibg=#f0e68c
-" hi PmenuSbar ctermbg=0 ctermfg=9
-" hi PmenuSbar ctermbg=255 ctermfg=0 guifg=#000000 guibg=#FFFFFF
 
 "-------------------------------------------------------------------------------
 " ステータスライン StatusLine
 "-------------------------------------------------------------------------------
-set laststatus=2 " 常にステータスラインを表示
+set laststatus=2 " ステータスラインは、２行
+set ruler  " カーソル位置表示
 
-"カーソルが何行目の何列目に置かれているかを表示する
-set ruler
-
-" vim-powerlineでフォントにパッチを当てないなら以下をコメントアウト
-"let g:Powerline_symbols = 'fancy'
-
-"ステータスラインに文字コードと改行文字を表示する
-" if winwidth(0) >= 120
-  " set statusline=%<[%n]%m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).':'.&ff.']'}%y\ %{g:HahHah()}\ %F%=[%{GetB()}]\ %{fugitive#statusline()}\ %l,%c%V%8P
-" else
-  " set statusline=%<[%n]%m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).':'.&ff.']'}%y\ %{g:HahHah()}\ %f%=[%{GetB()}]\ %{fugitive#statusline()}\ %l,%c%V%8P
-" endif
-
-"入力モード時、ステータスラインのカラーを変更
-" augroup InsertHook
-" autocmd!
-" autocmd InsertEnter * highlight StatusLine guifg=#ccdc90 guibg=#2E4340 ctermfg=cyan
-" autocmd InsertLeave * highlight StatusLine guifg=#2E4340 guibg=#ccdc90 ctermfg=white
-" augroup END
-
-"自動的に QuickFix リストを表示する
+" 自動的に QuickFix リストを表示する
 autocmd QuickfixCmdPost make,grep,grepadd,vimgrep,vimgrepadd cwin
 autocmd QuickfixCmdPost lmake,lgrep,lgrepadd,lvimgrep,lvimgrepadd lwin
 
@@ -97,31 +71,22 @@ endfunc
 "-------------------------------------------------------------------------------
 " 表示 Apperance
 "-------------------------------------------------------------------------------
-set showmatch         " 括弧の対応をハイライト
-set number            " 行番号表示
+set number            " 行番号の表示
 set list              " 不可視文字表示
+set showmatch         " 括弧をハイライト
 set listchars=tab:>.,trail:_,extends:>,precedes:< " 不可視文字の表示形式
 set display=uhex      " 印字不可能文字を16進数で表示
-set title " タイトルを表示
+set title       " タイトルを表示
+set lazyredraw  " コマンド実行中再描画しない
+set ttyfast     " 高速ターミナル接続
+set cursorline  " カーソル行をハイライトする
 
 " 全角スペースの表示
 highlight ZenkakuSpace cterm=underline ctermfg=lightblue guibg=darkgray
 match ZenkakuSpace /　/
 
-" カーソル行をハイライト
-set cursorline
-" カレントウィンドウにのみ罫線を引く
-augroup cch
-  autocmd! cch
-  autocmd WinLeave * set nocursorline
-  autocmd WinEnter,BufRead * set cursorline
-augroup END
-
+" カーソル行の設定
 hi clear CursorLine
 hi CursorLine gui=underline
 highlight CursorLine ctermbg=black guibg=black
 
-" コマンド実行中は再描画しない
-set lazyredraw
-" 高速ターミナル接続を行う
-set ttyfast
