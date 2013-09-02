@@ -446,6 +446,13 @@ nnoremap <Space>gc :<C-u>Gcommit<Enter>
 nnoremap <Space>gC :<C-u>Git commit --amend<Enter>
 nnoremap <Space>gb :<C-u>Gblame<Enter>
 
+"------------------------------------
+" Gitgutter.vim
+"------------------------------------
+if has('win32')
+  let g:gitgutter_realtime = 0
+endif
+
 " +++++++++++++++++++++++ Unite +++++++++++++++++++++++
 "------------------------------------
 " unite.vim

@@ -8,7 +8,7 @@ set incsearch  " インクリメンタルサーチ
 set hlsearch   " 検索文字をハイライト
 
 " ハイライト消去
-nmap <ESC><ESC> ;nohlsearch<CR><ESC>
+nmap <ESC><ESC> :nohlsearch<CR><ESC>
 " Ctrl-qでヘルプ
 nnoremap <C-h>      :<C-u>help<Space>
 " カーソル下のキーワードをヘルプでひく

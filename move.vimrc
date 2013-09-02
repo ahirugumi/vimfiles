@@ -28,11 +28,11 @@ nmap 9 $
 " insert mode でjjでesc
 inoremap jj <Esc>
 
-" F2で前バッファ
-map <F2> <ESC>;bp<CR>
-" F3で次バッファ
-map <F3> <ESC>;bn<CR>
-" F4でバッファ削除
+" previous buffer
+map <F2> <ESC>:bp<CR>
+" next buffer
+map <F3> <ESC>:bn<CR>
+" buffer delete
 map <F4> <ESC>:bnext \| bdelete #<CR>
 command! Bw :bnext \| bdelete #
 

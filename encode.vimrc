@@ -2,10 +2,14 @@
 " エンコーディング設定
 "=========================================================================================
 set ffs=unix,dos,mac  " 改行文字
-"-------for linux and mac---------
-set encoding=utf-8    " デフォルトエンコーディング
-"-------------------------
-"set encoding=cp932    " デフォルトエンコーディング
+" デフォルトエンコーディング
+if has('win32')
+  set encoding=Cp932
+  set fileencoding=Cp932
+else
+  set encoding=utf-8
+  set fileencoding=utf-8
+endif
 
 " 以下、全て強制的にUTF-8
 autocmd FileType js :set fileencoding=utf-8
