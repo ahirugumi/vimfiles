@@ -46,12 +46,6 @@ endif
   " ヘルプ、リファレンス参照
   NeoBundle 'thinca/vim-ref'
 
-  " SQL整形
-  NeoBundle 'SQLUtilities'
-
-  " Python拡張
-  NeoBundle 'Pydiction'
-
   " tag拡張
   NeoBundle 'taglist.vim'
 
@@ -180,7 +174,7 @@ endif
   " memo
   NeoBundle 'fuenor/qfixhowm.git'
 
-  " surround.vim : テキストを括弧で囲む／削除する
+  " テキストを括弧で囲む／削除する
   NeoBundle 'tpope/vim-surround'
 
   " ヤンク拡張
