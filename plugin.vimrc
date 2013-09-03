@@ -30,7 +30,6 @@ let g:neocomplcache_enable_auto_select = 1
 let g:neocomplcache_max_list = 20
 
 " Define dictionary.
-" -----------------for linux-------------------
 let g:neocomplcache_dictionary_filetype_lists = {
     \ 'default' : '',
     \ 'vimshell' : $HOME.'/.vimshell_hist',
@@ -42,7 +41,6 @@ let g:neocomplcache_dictionary_filetype_lists = {
     \ 'php' : $HOME.'/vimfiles/dict/php.dict',
     \ 'vm' : $HOME.'/vimfiles/dict/vim.dict'
     \ }
-"-----------------------------------------------
 
 " Define keyword.
 if !exists('g:neocomplcache_keyword_patterns')
@@ -75,20 +73,20 @@ let g:neosnippet#snippets_directory = '~/vimfiles/snipmate-snippets/snippets ~/v
 " TABで補完できるようにする
 inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 " undo
-inoremap <expr><C-g>     neocomplcache#undo_completion()
+inoremap <expr><C-g> neocomplcache#undo_completion()
 " 補完候補の共通部分までを補完する
 inoremap <expr><C-s> neocomplcache#complete_common_string()
 " C-kを押すと行末まで削除
 " inoremap <C-k> <C-o>D
 " C-nでneocomplcache補完
-inoremap <expr><C-n>  pumvisible() ? "\<C-n>" : "\<C-x>\<C-u>\<C-p>"
+inoremap <expr><C-n> pumvisible() ? "\<C-n>" : "\<C-x>\<C-u>\<C-p>"
 " C-pでkeyword補完
 inoremap <expr><C-p> pumvisible() ? "\<C-p>" : "\<C-p>\<C-n>"
 " 補完候補が出ていたら確定、なければ改行
-inoremap <expr><CR>  pumvisible() ? neocomplcache#close_popup() : "<CR>"
+inoremap <expr><CR> pumvisible() ? neocomplcache#close_popup() : "<CR>"
 
 " <TAB>: completion.
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 " <C-h>, <BS>: close popup and delete backword char.
 inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
 inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
@@ -189,11 +187,6 @@ endfunction
 autocmd BufReadPost *_spec.rb call RSpecQuickrun()
 
 "------------------------------------
-" Pydiction
-"------------------------------------
-let g:pydiction_location = '~/vimfiles/bundle/pydiction/complete-dict'
-
-"------------------------------------
 " taglist.Vim
 "------------------------------------
 " 関数一覧
@@ -201,9 +194,8 @@ set tags=tags
 "set tags+=~/.tags
 if has('win32')
   let Tlist_Ctags_Cmd = 'C:\Users\m16088h\ctags\ctags.exe' " ctagsのパス
-elseif has('macunix')
+elseif has('mac') || has('macunix')
   let Tlist_Ctags_Cmd = '/Applications/MacVim.app/Contents/MacOS/ctags' " ctagsのパス
-else
 endif
 let Tlist_Show_One_File = 1               " 現在編集中のソースのタグしか表示しない
 let Tlist_Exit_OnlyWindow = 1             " taglistのウィンドーが最後のウィンドーならばVimを閉じる
@@ -465,7 +457,7 @@ command! GG :GitGutterToggle
 "------------------------------------
 " The prefix key.
 nnoremap [unite] <Nop>
-nmap f [unite]
+nmap <Leader>F [unite]
 
 nnoremap [unite]u  :<C-u>Unite -no-split<Space>
 
@@ -644,4 +636,6 @@ let g:toggle_pairs = { 'and':'or', 'or':'and', 'if':'unless', 'unless':'if', 'ye
 " gundo.Vim
 "------------------------------------
 nmap U :<C-u>GundoToggle<CR>
-
+let g:gundo_width = 30
+let g:gundo_preview_height = 40
+let g:gundo_right = 1
