@@ -15,8 +15,8 @@ nmap ye ;let @"=expand("<cword>")<CR>
 " コンマの後に自動的にスペースを挿入
 inoremap , ,<Space>
 " インサートモード時のUNDO
-inoremap <C-u>  <C-g>u<C-u>
-inoremap <C-w>  <C-g>u<C-w>
+inoremap <C-u> <C-g>u<C-u>
+inoremap <C-w> <C-g>u<C-w>
 " インサートモード時のペーストを<C-v>でする
 inoremap <C-v> <ESC>:<C-U>YRPaste 'p'<CR>i
 " Yで行末までヤンク
