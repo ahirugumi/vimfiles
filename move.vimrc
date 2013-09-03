@@ -73,7 +73,7 @@ nnoremap t <Nop>
 " ジャンプ
 nnoremap tt <C-]>
 " 進む
-nnoremap tj :<C-u>tag<CR>
+nnoremap tj :" <C-u>tag<CR>
 " 戻る
 nnoremap tk :<C-u>pop<CR>
 " 履歴一覧
