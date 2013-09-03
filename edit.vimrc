@@ -8,8 +8,8 @@ inoremap <silent> <ESC> <ESC>:set iminsert=0<CR>
 
 " Tabキーを空白に変換
 set expandtab
-" <C-o>で改行
-nnoremap <C-o> :<C-u>call append(expand('.'), '')<Cr>j
+" <C-j>で改行
+nnoremap <C-j> :<C-u>call append(expand('.'), '')<Cr>j
 " yeでカーソル位置にある単語をレジスタに追加
 nmap ye ;let @"=expand("<cword>")<CR>
 " コンマの後に自動的にスペースを挿入
