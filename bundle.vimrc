@@ -29,6 +29,9 @@ endif
 
   " matchit拡張のruby用
   NeoBundle 'ruby-matchit'
+
+  " 日本語単語単位移動強化
+  NeoBundle 'deton/jasegment.vim'
 " ]]]
 
 " grep [[[
