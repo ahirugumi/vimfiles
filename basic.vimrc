@@ -21,10 +21,12 @@ set browsedir=buffer             " Exploreの初期ディレクトリをバッ�
 
 " OSのクリップボードを使用する。
 " vimが+clipboardでコンパイルされていないと利用できない。
-set clipboard+=unnamed
-"--------for linux-----------
-"set clipboard=unnamedplus
-"----------------------------
+if has('unix')
+  set clipboard+=unnamedplus
+else
+  set clipboard+=unnamed
+endif
+
 " ターミナルでマウスを使用できるようにする
 set mouse=a
 set guioptions+=a
@@ -32,7 +34,7 @@ set ttymouse=xterm2
 
 imap <C-v> <ESC>"*pa " 挿入モードでCtrl+vを押すとクリップボードの内容を貼り付けられるようにする
 
-""===========for linux====================
+""===========for linux IMEがオフにならないケースがあったのでテスト的にいれた。======================
 "" PythonによるIBus制御指定
 "let IM_CtrlBusPython = 1
 ""au InsertLeave * call PyIBusDisable()
@@ -49,7 +51,7 @@ imap <C-v> <ESC>"*pa " 挿入モードでCtrl+vを押すとクリップボード
 
 "" <ESC>押下後のIM切替開始までの反応が遅い場合はttimeoutlenを短く設定してみてください。
 "set timeout timeoutlen=3000 ttimeoutlen=100
-""=====================================================
+""==================================================================================================
 
 " vimrc, gvimrcの修正
 nnoremap <silent> <Space>ev  :<C-u>edit $MYVIMRC<CR>
@@ -60,24 +62,6 @@ set helpfile=$VIMRUNTIME/doc/help.txt
 
 " ファイルタイプ判定をon
 filetype plugin on
-
-"-------------------------------------------------------------------------------
-" タグ関連 Tags
-"-------------------------------------------------------------------------------
-" タグセット
-if has("autochdir")
-  set autochdir  " 編集中のファイルのディレクトリに移動
-  set tags=tags;
-else
-  set tags=./tags,./../tags,./*/tags,./../../tags,./../../../tags,./../../../../tags,./../../../../../tags
-endif
-
-"tags-and-searchesを使い易くする
-nnoremap t <Nop>
-nnoremap tt <C-]>  " ジャンプ
-nnoremap tj;<C-u>tag<CR>  " 進む
-nnoremap tk;<C-u>pop<CR>  " 戻る
-nnoremap tl;<C-u>tags<CR> " 履歴一覧
 
 " bug??
 set notagbsearch
