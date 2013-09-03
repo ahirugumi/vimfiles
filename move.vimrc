@@ -57,3 +57,25 @@ vnoremap v $h
 " 自動的に前回終了したカーソル行に移動
 autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g`\"" | endif
 
+"-------------------------------------------------------------------------------
+" タグ関連 Tags
+"-------------------------------------------------------------------------------
+" タグセット
+if has("autochdir")
+  set autochdir  " 編集中のファイルのディレクトリに移動
+  set tags=tags;
+else
+  set tags=./tags,./../tags,./*/tags,./../../tags,./../../../tags,./../../../../tags,./../../../../../tags
+endif
+
+"tags-and-searchesを使い易くする
+nnoremap t <Nop>
+" ジャンプ
+nnoremap tt <C-]>
+" 進む
+nnoremap tj :<C-u>tag<CR>
+" 戻る
+nnoremap tk :<C-u>pop<CR>
+" 履歴一覧
+nnoremap tl :<C-u>tags<CR>
+
