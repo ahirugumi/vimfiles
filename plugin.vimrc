@@ -199,19 +199,21 @@ let g:pydiction_location = '~/vimfiles/bundle/pydiction/complete-dict'
 " 関数一覧
 set tags=tags
 "set tags+=~/.tags
-" ------------- for mac ------------------
-let Tlist_Ctags_Cmd = '/Applications/MacVim.app/Contents/MacOS/ctags' " ctagsのパス
-" ----------------------------------------
+if has('win32')
+  let Tlist_Ctags_Cmd = 'C:\Users\m16088h\ctags\ctags.exe' " ctagsのパス
+elseif has('macunix')
+  let Tlist_Ctags_Cmd = '/Applications/MacVim.app/Contents/MacOS/ctags' " ctagsのパス
+else
+endif
 let Tlist_Show_One_File = 1               " 現在編集中のソースのタグしか表示しない
 let Tlist_Exit_OnlyWindow = 1             " taglistのウィンドーが最後のウィンドーならばVimを閉じる
-" let Tlist_Use_Right_Window = 1            " 右側でtaglistのウィンドーを表示
+"let Tlist_Use_Right_Window = 1            " 右側でtaglistのウィンドーを表示
 let Tlist_Enable_Fold_Column = 1          " 折りたたみ
 let Tlist_Auto_Open = 1                   " 自動表示
 let Tlist_Auto_Update = 1
 let Tlist_WinWidth = 30
-"map <silent> <leader>tl :Tlist<CR>        " taglistを開くショットカットキー
-nmap <F7> :CMiniBufExplorer<CR>:TrinityToggleTagList<CR>:TMiniBufExplorer<CR>
-nmap <Leader>tl :CMiniBufExplorer<CR>:TrinityToggleTagList<CR>:TMiniBufExplorer<CR>
+map <silent> <leader>l :Tlist<CR>
+nmap <Leader>tl :CMiniBufExplorer<CR>:TMiniBufExplorer<CR>
 
 "------------------------------------
 " errormarker.vim
@@ -451,7 +453,11 @@ nnoremap <Space>gb :<C-u>Gblame<Enter>
 "------------------------------------
 if has('win32')
   let g:gitgutter_realtime = 0
+  let g:gitgutter_eager = 0
+  let g:gitgutter_enabled = 0
 endif
+" GGでGitGutterを有効/無効
+command! GG :GitGutterToggle
 
 " +++++++++++++++++++++++ Unite +++++++++++++++++++++++
 "------------------------------------
@@ -611,7 +617,7 @@ let g:surround_{char2nr("-")} = ":\r"
 " YankRing.vim
 "------------------------------------
 " Yankの履歴参照
-nmap ,y ;YRShow<CR>
+nmap ,y :YRShow<CR>
 
 "------------------------------------
 " operator-replace.vim
@@ -638,3 +644,4 @@ let g:toggle_pairs = { 'and':'or', 'or':'and', 'if':'unless', 'unless':'if', 'ye
 " gundo.Vim
 "------------------------------------
 nmap U :<C-u>GundoToggle<CR>
+

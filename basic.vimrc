@@ -30,7 +30,7 @@ set mouse=a
 set guioptions+=a
 set ttymouse=xterm2
 
-imap <C-v>  <ESC>"*pa  " 挿入モードでCtrl+kを押すとクリップボードの内容を貼り付けられるようにする
+imap <C-v> <ESC>"*pa " 挿入モードでCtrl+vを押すとクリップボードの内容を貼り付けられるようにする
 
 ""===========for linux====================
 "" PythonによるIBus制御指定
