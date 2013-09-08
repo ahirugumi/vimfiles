@@ -21,7 +21,9 @@ set browsedir=buffer             " Exploreの初期ディレクトリをバッ�
 
 " OSのクリップボードを使用する。
 " vimが+clipboardでコンパイルされていないと利用できない。
-if has('unix')
+if has ('mac')
+  set clipboard+=unnamed
+elseif has('unix')
   set clipboard+=unnamedplus
 else
   set clipboard+=unnamed
