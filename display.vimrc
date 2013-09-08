@@ -5,7 +5,7 @@
 " カラースキーマ
 " colorscheme wombat
 colorschem solarized
-set background=dark
+set background=light
 
 " ターミナルタイプによるカラー設定
 " UbuntuのGnome端末は、xtermを返してくる。環境変数にxterm-256colorとかをちゃん
@@ -60,5 +60,5 @@ match ZenkakuSpace /　/
 " カーソル行の設定
 hi clear CursorLine
 hi CursorLine gui=underline
-highlight CursorLine ctermbg=black guibg=black
-
+" highlight CursorLine ctermbg=black guibg=black
+highlight CursorLine ctermbg=LightGray guibg=LightGray
