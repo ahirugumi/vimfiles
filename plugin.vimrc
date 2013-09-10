@@ -457,7 +457,7 @@ command! GG :GitGutterToggle
 "------------------------------------
 " The prefix key.
 nnoremap [unite] <Nop>
-nmap <Leader>F [unite]
+nmap <space><space> [unite]
 
 nnoremap [unite]u  :<C-u>Unite -no-split<Space>
 
@@ -639,3 +639,12 @@ nmap U :<C-u>GundoToggle<CR>
 let g:gundo_width = 30
 let g:gundo_preview_height = 40
 let g:gundo_right = 1
+
+"------------------------------------
+" jasegment.Vim
+"------------------------------------
+" text-object ie, aeを割当
+call jasegment#define('knbc_bunsetu', {
+   \ 'select-i': 'ie',
+   \ 'select-a': 'ae',
+   \ })
