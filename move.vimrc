@@ -21,7 +21,6 @@ inoremap <C-h> <Left>
 inoremap <C-l> <Right>
 
 " 0, 9で行頭、行末へ
-nmap 1 0
 nmap 0 ^
 nmap 9 $
 
