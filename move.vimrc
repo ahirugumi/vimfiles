@@ -74,7 +74,7 @@ else
 endif
 
 "tags-and-searchesを使い易くする
-nnoremap t <Nop>
+" nnoremap t <Nop>
 " ジャンプ
 nnoremap tt <C-]>
 " 進む
