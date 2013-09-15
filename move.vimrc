@@ -12,6 +12,12 @@ nnoremap l <Right>
 nnoremap <Down> gj
 nnoremap <Up>   gk
 
+" 矢印キーをオフ
+noremap <Up> <Nop>
+noremap <Down> <Nop>
+noremap <Left> <Nop>
+noremap <Right> <Nop>
+
 " インサートモードでの移動
 inoremap <C-e> <END>
 inoremap <C-a> <HOME>
