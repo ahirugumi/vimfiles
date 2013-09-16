@@ -9,7 +9,7 @@ inoremap <silent> <ESC> <ESC>:set iminsert=0<CR>
 " Tabキーを空白に変換
 set expandtab
 " <C-r>で改行
-nnoremap <C-r> :<C-u>call append(expand('.'), '')<Cr>j
+nnoremap <C-t> :<C-u>call append(expand('.'), '')<Cr>j
 " yeでカーソル位置にある単語をレジスタに追加
 nmap ye ;let @"=expand("<cword>")<CR>
 " コンマの後に自動的にスペースを挿入
@@ -47,3 +47,5 @@ inoremap <expr> ,dd strftime('%Y/%m/%d')
 inoremap <expr> ,dt strftime('%H:%M:%S')
 " sudoコマンド
 command! Sudo :w !sudo tee % > /dev/null
+" ペーストした際にインデントしないよう切り替える
+set pastetoggle=<F5>
