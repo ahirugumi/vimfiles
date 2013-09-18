@@ -21,6 +21,3 @@ nnoremap <C-g><C-b> :<C-u>GrepBuffer<Space><C-r><C-w><Enter>
 command! -nargs=1 Gr :Rgrep <args> *<Enter><CR>
 " カーソル下の単語をgrepする
 nnoremap <silent> <C-g><C-r> :<C-u>Rgrep<Space><C-r><C-w> *<Enter><CR>
-" Grep対象から以下を外す
-let Grep_Skip_Dirs = '.svn .git'
-let Grep_Skip_Files = '*.bak *~'
