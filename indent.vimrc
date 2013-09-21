@@ -4,7 +4,6 @@
 set autoindent   " 自動インデント
 set smartindent  " 新たな行を追加した際にインデントを同じ量にする
 set cindent      " Cの自動インデント
-set paste        " ペースト時に自動インデント
 
 " softtabstop:Tabキーを押した時の空白の量
 set tabstop=2 shiftwidth=2 softtabstop=0
