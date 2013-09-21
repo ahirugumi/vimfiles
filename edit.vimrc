@@ -49,3 +49,5 @@ inoremap <expr> ,dt strftime('%H:%M:%S')
 command! Sudo :w !sudo tee % > /dev/null
 " ペーストした際にインデントしないよう切り替える
 set pastetoggle=<F5>
+" 初期は、ペーストモードオフ
+set nopaste
