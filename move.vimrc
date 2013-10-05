@@ -84,4 +84,4 @@ nnoremap tk :<C-u>pop<CR>
 " 履歴一覧
 nnoremap tl :<C-u>tags<CR>
 " タグ作成
-nnoremap <C-@> :!ctags -R
+nnoremap <C-@> :!ctags -R<CR>
