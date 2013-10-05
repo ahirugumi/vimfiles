@@ -190,8 +190,8 @@ autocmd BufReadPost *_spec.rb call RSpecQuickrun()
 " taglist.Vim
 "------------------------------------
 " 関数一覧
-set tags=tags
-"set tags+=~/.tags
+" set tags=tags
+" set tags+=~/.tags
 if has('win32')
   let Tlist_Ctags_Cmd = 'C:\Users\m16088h\ctags\ctags.exe' " ctagsのパス
 elseif has('mac') || has('macunix')
