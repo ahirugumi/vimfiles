@@ -24,7 +24,7 @@ set browsedir=buffer             " Exploreの初期ディレクトリをバッ�
 if has ('mac')
   set clipboard+=unnamed
 elseif has('unix')
-  set clipboard+=unnamedplus
+  set clipboard=unnamedplus
 else
   set clipboard+=unnamed
 endif
