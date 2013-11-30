@@ -536,7 +536,7 @@ let howm_filename        = '%Y/%m/%Y-%m-%d-%H%M%S.txt'
 let howm_fileencoding    = 'utf-8'
 let howm_fileformat      = 'unix'
 " qfix_memoファイルタイプ
-let QFixHowm_FileType = 'qfix_memo'
+let QFixHowm_FileType = 'markdown'
 " qfix_memoの拡張子
 let QFixHowm_FileExt  = 'txt'
 " , yで全ての予定を表示
@@ -594,6 +594,10 @@ let QFixHowm_FoldingChapterTitle = 1
 let QFixHowm_WildCardChapter = 1
 "チャプターのレベルに応じた折りたたみを設定する
 let QFixHowm_FoldingMode = 1
+"Markdownを外部コマンド使用でHTML変換
+let HowmHtml_ConvertFunc = '<SID>MarkdownStr2HTML'
+"HTML変換コマンドは、pacdocを使う
+let HowmHtml_ConvertCmd = 'pandoc -f markdown'
 
 "------------------------------------
 " surround.vim

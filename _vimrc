@@ -1,5 +1,5 @@
 " git protocol
-if has('win32')
+if has('win32') || has("unix")
   let g:neobundle#types#git#default_protocol = 'https'
 else
   let g:neobundle#types#git#default_protocol = 'git'
