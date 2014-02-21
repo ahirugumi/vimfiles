@@ -62,6 +62,9 @@ nnoremap <silent> <Space>eg  :<C-u>edit $MYGVIMRC<CR>
 " ヘルプファイル
 set helpfile=$VIMRUNTIME/doc/help.txt
 
+" パス
+set path+=$HOME/mywork
+
 " ファイルタイプ判定をon
 filetype plugin on
 
