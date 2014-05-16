@@ -29,8 +29,20 @@ nnoremap <silent> <C-d> d0
 inoremap <silent> <C-b> <Esc>lc^
 " カーソルから行末まで削除(インサートモード)
 inoremap <silent> <C-d> <Esc>lc$
-" 保存時に行末の空白を除去する
-autocmd BufWritePre * :%s/\s\+$//ge
+" 保存時に行末の空白を除去する（条件付き）
+" autocmd BufWritePre * :%s/\s\+$//ge
+autocmd BufWritePre * call s:strip_trailing_whitespace()
+function! s:strip_trailing_whitespace()
+  let position = getpos('.')
+  if &ft =~ 'python\|haskell\|coffee\|haml'
+    %s/\S\zs\s\+$//e
+  elseif &ft =~ 'markdown'
+    %s/^\s\+$//e
+  else
+    %s/\s\+$//e
+  endif
+  call setpos('.', position)
+endfunction
 " 保存時にtabをスペースに変換する
 autocmd BufWritePre * :%s/\t/  /ge
 " quickfixウィンドウではq/ESCで閉じる
