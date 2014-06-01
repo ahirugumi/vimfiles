@@ -1,6 +1,23 @@
 "set encoding=utf-8
 let g:Powerline_symbols = 'fancy'
 set guifont=Ricty:h14
+if has('gui_macvim')
+    set showtabline=2  " タブを常に表示
+    "set imdisable  " IMを無効化
+    set noimdisableactivate
+    "set transparency=30  " 透明度を指定
+    set antialias
+    set number
+    " フォント設定
+    set guifont=Ricty:h14
+endif
+
+"フルスクリーンの設定
+if has("gui_running")
+  set fuoptions=maxvert,maxhorz
+  "au GUIEnter * set fullscreen
+endif
+
 let g:save_window_file = expand('~/.vimwinpos')
 augroup SaveWindow
   autocmd!
@@ -19,4 +36,30 @@ if filereadable(g:save_window_file)
   execute 'source' g:save_window_file
 endif
 
+" カラースキーマ（solarized）
+" F5でライト、ダーク切り替え
+call togglebg#map("<F5>")
+set t_Co=16
+let g:solarized_termcolors=16
+let g:solarized_termtrans=0
+let g:solarized_degrade=0
+let g:solarized_bold=1
+let g:solarized_underline=1
+let g:solarized_italic=1
+let g:solarized_contrast="normal"
+let g:solarized_visibility="normal"
 colorschem solarized
+
+" OSのクリップボード、ビジュアルで選択しただけでクリップボードに入るようにする
+set clipboard=unnamed,autoselect
+" 挿入モードでCtrl+kを押すとクリップボードの内容を貼り付けられるようにする "
+imap <C-K> <ESC>"*pa
+" コマンドラインの高さ
+set cmdheight=3
+
+"透明度の指定
+if has('mac')
+    autocmd FocusGained * set transparency=10
+    autocmd FocusLost * set transparency=50
+endif
+
