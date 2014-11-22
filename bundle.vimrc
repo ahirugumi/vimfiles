@@ -5,7 +5,10 @@ filetype off
 
 if has('vim_starting')
   set runtimepath+=~/vimfiles/bundle/neobundle.vim
-  call neobundle#rc(expand('~/vimfiles/bundle/'))
+  " call neobundle#rc(expand('~/vimfiles/bundle/'))
+  call neobundle#begin(expand('~/vimfiles/bundle/'))
+  NeoBundleFetch 'Shougo/neobundle.vim'
+  call neobundle#end()
 endif
 
 " 入力補完 [[[
@@ -218,8 +221,9 @@ endif
   " インデントされたものをテキストオブジェクトにする
   NeoBundle 'kana/vim-textobj-indent.git'
 
-  " 関数の中身をテキストオブジェクトにする
-  NeoBundle 'kana/vim-textobj-function.git'
+  " vimの最新当てたらエラーになって使えなくなった。おかしい。
+  " " 関数の中身をテキストオブジェクトにする
+  " NeoBundle 'kana/vim-textobj-function.git'
 
   " シンタックスハイライトされた単語をテキストオブジェクトにする
   NeoBundle 'kana/vim-textobj-syntax.git'
