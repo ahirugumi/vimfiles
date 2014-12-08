@@ -69,6 +69,9 @@ endif
 
   " コメントアウト拡張
   NeoBundle 'vim-scripts/tComment.git'
+
+  " reST用プラグイン
+  NeoBundle 'Rykka/riv.vim'
 " ]]]
 
 " シンタックス [[[
@@ -118,14 +121,14 @@ endif
   NeoBundle 'tyru/urilib.vim'
 " ]]]
 
-" Redmine [[[
-  " Redmine on Vim
-  NeoBundle 'mattn/vim-metarw-redmine'
-  NeoBundle 'basyura/rmine.vim'
-
-  " A framework to read/write fake:path
-  NeoBundle 'kana/vim-metarw'
-" ]]]
+" " Redmine [[[
+"   " Redmine on Vim
+"   NeoBundle 'mattn/vim-metarw-redmine'
+"   NeoBundle 'basyura/rmine.vim'
+"
+"   " A framework to read/write fake:path
+"   NeoBundle 'kana/vim-metarw'
+" " ]]]
 
 " 表示 [[[
   " solarized
