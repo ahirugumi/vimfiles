@@ -70,8 +70,8 @@ endif
   " コメントアウト拡張
   NeoBundle 'vim-scripts/tComment.git'
 
-  " reST用プラグイン
-  NeoBundle 'Rykka/riv.vim'
+  " " reST用プラグイン
+  " NeoBundle 'Rykka/riv.vim'
 " ]]]
 
 " シンタックス [[[
@@ -86,6 +86,9 @@ endif
 
   " jQuery
   NeoBundle 'jQuery'
+
+  " reST
+  NeoBundle 'vim-scripts/rest.vim'
 " ]]]
 
 " バッファ [[[
