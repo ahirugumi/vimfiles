@@ -17,6 +17,7 @@ endif
 
   " neocomplcacheのsinpet補完
   NeoBundle 'Shougo/neosnippet.git'
+  NeoBundle "Shougo/neosnippet-snippets.git"
 
   " snipmate
   NeoBundle 'honza/vim-snippets'
@@ -30,8 +31,8 @@ endif
   " パーセント「%」キーで対応する括弧へカーソルを移動する
   NeoBundle 'matchit.zip'
 
-  " matchit拡張のruby用
-  NeoBundle 'ruby-matchit'
+  " " matchit拡張のruby用
+  " NeoBundle 'ruby-matchit'
 
   " 日本語単語単位移動強化
   NeoBundle 'deton/jasegment.vim'
@@ -99,8 +100,8 @@ endif
   " " バッファ管理
   " NeoBundle 'minibufexpl.vim'
 
-  " バッファ管理拡張
-  NeoBundle 'thinca/vim-openbuf'
+  " " バッファ管理拡張
+  " NeoBundle 'thinca/vim-openbuf'
 
   " ファイラ
   NeoBundle 'Shougo/vimfiler.git'
@@ -173,6 +174,7 @@ endif
   NeoBundle 'choplin/unite-vim_hacks'
   NeoBundle 'basyura/unite-yarm'
   NeoBundle 'ujihisa/unite-colorscheme'
+  NeoBundle 'Shougo/neomru.vim'
 " ]]]
 
 " 整形 [[[
