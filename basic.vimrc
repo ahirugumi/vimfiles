@@ -4,14 +4,19 @@
 let mapleader = ","              " キーマップリーダー
 set ambiwidth=double             " 全角の記号とかあってもカーソルがズレないようにする。+multi_byteでコンパイルされていないと動作しない。
 set textwidth=0                  " 自動折り返ししない
+set colorcolumn=80               " 80文字にライン
 set scrolloff=5                  " 余白確保
-set nobackup                     " バックアップなし
+" バックアップなし
+set nowritebackup
+set nobackup
 set noswapfile                   " スワップなし
 set autoread                     " 開いているファイルが書き換えられたら自動的に開き直す
 set hidden                       " 編集中でもファイルを開けるようにする
 set backspace=indent,eol,start   " バックスペースで色々消せる用にする
 set formatoptions=lmoq           " 自動整形ON
-set vb t_vb=                     " ビープをならさない
+" ビープをならさない
+set vb t_vb=
+set novisualbell
 set whichwrap=b,s,h,l,<,>,[,]    " カーソルが行の一番最後で止まらないようにする
 set showcmd                      " コマンドをステータス行に表示
 set showmode                     " 現在のモードを表示
@@ -23,6 +28,12 @@ set t_Co=256
 
 " OSのクリップボードを使用する。
 " vimが+clipboardでコンパイルされていないと利用できない。
+" if has('unnamedplus')
+"   set clipboard+=unnamedplus, unnamed
+" else
+"   set clipboard+=unnamed
+" endif
+
 if has ('mac')
   set clipboard+=unnamed
 elseif has('unix')

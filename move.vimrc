@@ -1,8 +1,8 @@
 "=========================================================================================
 " 移動設定
 "=========================================================================================
-" ブロック選択で自由に移動
-set virtualedit+=block
+" カーソル自由に移動
+set virtualedit+=all
 
 " カーソルを表示行で移動
 nnoremap h <Left>
@@ -12,11 +12,11 @@ nnoremap l <Right>
 nnoremap <Down> gj
 nnoremap <Up>   gk
 
-" 矢印キーをオフ
-noremap <Up> <Nop>
-noremap <Down> <Nop>
-noremap <Left> <Nop>
-noremap <Right> <Nop>
+" " 矢印キーをオフ
+" noremap <Up> <Nop>
+" noremap <Down> <Nop>
+" noremap <Left> <Nop>
+" noremap <Right> <Nop>
 
 " インサートモードでの移動
 inoremap <C-e> <END>
@@ -58,6 +58,20 @@ nnoremap vy vawy
 
 " ビジュアルモード時vで行末まで選択
 vnoremap v $h
+
+" 検索後、見やすいようにヒットした文字列を真ん中に持ってくる
+nnoremap n nzz
+nnoremap N Nzz
+nnoremap * *zz
+nnoremap # #zz
+nnoremap g* g*zz
+nnoremap g# g#zz
+
+" " shift-矢印でウィンドウ移動
+" noremap <S-Left> <C-w>h
+" noremap <S-Right> <C-w>l
+" noremap <S-Up> <C-w>k
+" noremap <S-Down> <C-w>j
 
 " 自動的に前回終了したカーソル行に移動
 autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g`\"" | endif

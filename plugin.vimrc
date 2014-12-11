@@ -165,10 +165,10 @@ let Grep_Skip_Files = '*.bak *~'
 "------------------------------------
 " quickrun.vim
 "------------------------------------
-",qでquickrun実行
-silent! map <unique> <Leader>q <Plug>(quickrun)
+",rでquickrun実行
+silent! map <unique> <Leader>r <Plug>(quickrun)
 let g:quickrun_config = {}
-let g:quickrun_config._ = {'runner' : 'vimproc', 'outputter/buffer/split' : ':botright 12sp'}
+let g:quickrun_config._ = {'runner' : 'vimproc', 'outputter/buffer/split' : ':botright 12sp', "outputter/buffer/into" : 1}
 " let g:quickrun_config._ = {'runner' : 'vimproc'}
 let g:quickrun_config['rspec/bundle'] = {
   \ 'type': 'rspec/bundle',
@@ -189,26 +189,31 @@ function! RSpecQuickrun()
 endfunction
 autocmd BufReadPost *_spec.rb call RSpecQuickrun()
 
+" "------------------------------------
+" " taglist.Vim
+" "------------------------------------
+" " 関数一覧
+" " set tags=tags
+" " set tags+=~/.tags
+" if has('win32')
+"   let Tlist_Ctags_Cmd = 'C:\Users\m16088h\ctags\ctags.exe' " ctagsのパス
+" elseif has('mac') || has('macunix')
+"   let Tlist_Ctags_Cmd = '/Applications/MacVim.app/Contents/MacOS/ctags' " ctagsのパス
+" endif
+" let Tlist_Show_One_File = 1               " 現在編集中のソースのタグしか表示しない
+" let Tlist_Exit_OnlyWindow = 1             " taglistのウィンドーが最後のウィンドーならばVimを閉じる
+" "let Tlist_Use_Right_Window = 1            " 右側でtaglistのウィンドーを表示
+" let Tlist_Enable_Fold_Column = 1          " 折りたたみ
+" let Tlist_Auto_Open = 1                   " 自動表示
+" let Tlist_Auto_Update = 1
+" let Tlist_WinWidth = 30
+" map <silent> <leader>l :Tlist<CR>
+" nmap <Leader>tl :CMiniBufExplorer<CR>:TMiniBufExplorer<CR>
+
 "------------------------------------
-" taglist.Vim
+" Tagbar.vim
 "------------------------------------
-" 関数一覧
-" set tags=tags
-" set tags+=~/.tags
-if has('win32')
-  let Tlist_Ctags_Cmd = 'C:\Users\m16088h\ctags\ctags.exe' " ctagsのパス
-elseif has('mac') || has('macunix')
-  let Tlist_Ctags_Cmd = '/Applications/MacVim.app/Contents/MacOS/ctags' " ctagsのパス
-endif
-let Tlist_Show_One_File = 1               " 現在編集中のソースのタグしか表示しない
-let Tlist_Exit_OnlyWindow = 1             " taglistのウィンドーが最後のウィンドーならばVimを閉じる
-"let Tlist_Use_Right_Window = 1            " 右側でtaglistのウィンドーを表示
-let Tlist_Enable_Fold_Column = 1          " 折りたたみ
-let Tlist_Auto_Open = 1                   " 自動表示
-let Tlist_Auto_Update = 1
-let Tlist_WinWidth = 30
-map <silent> <leader>l :Tlist<CR>
-nmap <Leader>tl :CMiniBufExplorer<CR>:TMiniBufExplorer<CR>
+nmap <Leader>t :TagbarToggle<CR>
 
 "------------------------------------
 " errormarker.vim
@@ -277,66 +282,66 @@ let g:vimfiler_as_default_explorer = 1
 " vimfiler起動
 nnoremap <silent> vf :VimFiler<CR>
 
-"------------------------------------
-" VTreeExplorer
-"------------------------------------
-let g:treeExplVertical=1
-"<Leader>t<Space>でディレクトリツリー表示
-noremap <Leader>t<Space> :VSTreeExplore<CR>
-"分割したウィンドウのサイズ
-let g:treeExplWinSize=30
+" "------------------------------------
+" " VTreeExplorer
+" "------------------------------------
+" let g:treeExplVertical=1
+" "<Leader>t<Space>でディレクトリツリー表示
+" noremap <Leader>t<Space> :VSTreeExplore<CR>
+" "分割したウィンドウのサイズ
+" let g:treeExplWinSize=30
 
-"------------------------------------
-" vimshell
-"------------------------------------
-" vimshell起動
-nnoremap <silent> vs :VimShell<CR>
-let g:vimshell_user_prompt = 'fnamemodify(getcwd(), ":~")'
-let g:vimshell_right_prompt = 'vimshell#vcs#info("(%s)-[%b]", "(%s)-[%b|%a]")'
-let g:vimshell_enable_smart_case = 1
-
-if has('win32') || has('win64')
-  " Display user name on Windows.
-  let g:vimshell_prompt = $USERNAME."% "
-else
-  " Display user name on Linux.
-  let g:vimshell_prompt = $USER."% "
-
-  call vimshell#set_execute_file('bmp,jpg,png,gif', 'gexe eog')
-  call vimshell#set_execute_file('mp3,m4a,ogg', 'gexe amarok')
-  let g:vimshell_execute_file_list['zip'] = 'zipinfo'
-  call vimshell#set_execute_file('tgz,gz', 'gzcat')
-  call vimshell#set_execute_file('tbz,bz2', 'bzcat')
-endif
-
-function! g:my_chpwd(args, context)
-  call vimshell#execute('echo "chpwd"')
-endfunction
-function! g:my_emptycmd(cmdline, context)
-  call vimshell#execute('echo "emptycmd"')
-  return a:cmdline
-endfunction
-function! g:my_preprompt(args, context)
-  call vimshell#execute('echo "preprompt"')
-endfunction
-function! g:my_preexec(cmdline, context)
-  call vimshell#execute('echo "preexec"')
-
-  if a:cmdline =~# '^\s*diff\>'
-    call vimshell#set_syntax('diff')
-  endif
-  return a:cmdline
-endfunction
-
-autocmd FileType vimshell
-\ call vimshell#altercmd#define('g', 'git')
-\| call vimshell#altercmd#define('i', 'iexe')
-\| call vimshell#altercmd#define('l', 'll')
-\| call vimshell#altercmd#define('ll', 'ls -al')
-\| call vimshell#hook#set('chpwd', ['g:my_chpwd'])
-\| call vimshell#hook#set('emptycmd', ['g:my_emptycmd'])
-\| call vimshell#hook#set('preprompt', ['g:my_preprompt'])
-\| call vimshell#hook#set('preexec', ['g:my_preexec'])
+" "------------------------------------
+" " vimshell
+" "------------------------------------
+" " vimshell起動
+" nnoremap <silent> vs :VimShell<CR>
+" let g:vimshell_user_prompt = 'fnamemodify(getcwd(), ":~")'
+" let g:vimshell_right_prompt = 'vimshell#vcs#info("(%s)-[%b]", "(%s)-[%b|%a]")'
+" let g:vimshell_enable_smart_case = 1
+"
+" if has('win32') || has('win64')
+"   " Display user name on Windows.
+"   let g:vimshell_prompt = $USERNAME."% "
+" else
+"   " Display user name on Linux.
+"   let g:vimshell_prompt = $USER."% "
+"
+"   call vimshell#set_execute_file('bmp,jpg,png,gif', 'gexe eog')
+"   call vimshell#set_execute_file('mp3,m4a,ogg', 'gexe amarok')
+"   let g:vimshell_execute_file_list['zip'] = 'zipinfo'
+"   call vimshell#set_execute_file('tgz,gz', 'gzcat')
+"   call vimshell#set_execute_file('tbz,bz2', 'bzcat')
+" endif
+"
+" function! g:my_chpwd(args, context)
+"   call vimshell#execute('echo "chpwd"')
+" endfunction
+" function! g:my_emptycmd(cmdline, context)
+"   call vimshell#execute('echo "emptycmd"')
+"   return a:cmdline
+" endfunction
+" function! g:my_preprompt(args, context)
+"   call vimshell#execute('echo "preprompt"')
+" endfunction
+" function! g:my_preexec(cmdline, context)
+"   call vimshell#execute('echo "preexec"')
+"
+"   if a:cmdline =~# '^\s*diff\>'
+"     call vimshell#set_syntax('diff')
+"   endif
+"   return a:cmdline
+" endfunction
+"
+" autocmd FileType vimshell
+" \ call vimshell#altercmd#define('g', 'git')
+" \| call vimshell#altercmd#define('i', 'iexe')
+" \| call vimshell#altercmd#define('l', 'll')
+" \| call vimshell#altercmd#define('ll', 'ls -al')
+" \| call vimshell#hook#set('chpwd', ['g:my_chpwd'])
+" \| call vimshell#hook#set('emptycmd', ['g:my_emptycmd'])
+" \| call vimshell#hook#set('preprompt', ['g:my_preprompt'])
+" \| call vimshell#hook#set('preexec', ['g:my_preexec'])
 
 " Redmine
 "------------------------------------

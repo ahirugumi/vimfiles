@@ -1,3 +1,6 @@
+set encoding=utf-8
+scriptencoding utf-8
+
 " git protocol
 if has('win32') || has("unix")
   let g:neobundle#types#git#default_protocol = 'https'

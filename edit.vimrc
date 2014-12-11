@@ -4,6 +4,8 @@
 set noimdisable            " ノーマルモードでIMEをオフ
 set iminsert=0 imsearch=0  " これもノーマルモードと検索モードでIMEをオフ
 set noimcmdline            " コマンドラインでIMEオフ
+set infercase              " 補完するときに大文字小文字を区別しない
+
 inoremap <silent> <ESC> <ESC>:set iminsert=0<CR>
 
 " Tabキーを空白に変換
@@ -14,9 +16,9 @@ nnoremap <C-t> :<C-u>call append(expand('.'), '')<Cr>j
 nmap ye ;let @"=expand("<cword>")<CR>
 " コンマの後に自動的にスペースを挿入
 inoremap , ,<Space>
-" インサートモード時のUNDO
-inoremap <C-u> <C-g>u<C-u>
-inoremap <C-w> <C-g>u<C-w>
+" " インサートモード時のUNDO
+" inoremap <C-u> <C-g>u<C-u>
+" inoremap <C-w> <C-g>u<C-w>
 " インサートモード時のペーストを<C-v>でする
 inoremap <C-v> <ESC>:<C-U>YRPaste 'p'<CR>i
 " Yで行末までヤンク
@@ -58,7 +60,7 @@ inoremap <expr> ,df strftime('%Y/%m/%d %H:%M:%S')
 inoremap <expr> ,dd strftime('%Y/%m/%d')
 inoremap <expr> ,dt strftime('%H:%M:%S')
 " sudoコマンド
-command! Sudo :w !sudo tee % > /dev/null
+cmap w!! w !sudo tee > /dev/null %
 " ペーストした際にインデントしないよう切り替える
 set pastetoggle=<F5>
 " 初期は、ペーストモードオフ

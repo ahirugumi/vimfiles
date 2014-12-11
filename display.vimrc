@@ -51,7 +51,13 @@ autocmd QuickfixCmdPost lmake,lgrep,lgrepadd,lvimgrep,lvimgrepadd lwin
 set number            " 行番号の表示
 set list              " 不可視文字表示
 set showmatch         " 括弧をハイライト
-set listchars=tab:>.,trail:_,extends:>,precedes:< " 不可視文字の表示形式
+set matchtime=3       " 括弧のハイライトは、3秒だけ
+set matchpairs& matchpairs+=<:>       " <, >をペアに追加
+" set listchars=tab:≫-,trail:-,extends:≫,precedes:≪,nbsp:%,eol:↲ " 不可視文字の表示形式
+set listchars=tab:>-,extends:>,trail:-,precedes:<,eol:↲
+hi SpecialKey ctermfg=237 guifg=#3a3a3a
+hi NonText ctermfg=66 guifg=#5f8787
+
 set display=uhex      " 印字不可能文字を16進数で表示
 set title       " タイトルを表示
 set lazyredraw  " コマンド実行中再描画しない
@@ -67,3 +73,7 @@ hi clear CursorLine
 hi CursorLine gui=underline
 " highlight CursorLine ctermbg=black guibg=black
 highlight CursorLine ctermbg=LightGray guibg=LightGray
+
+" Python, Rubyの場合は、プレビューをOFFにする
+autocmd FileType python setlocal completeopt-=preview
+autocmd FileType ruby setlocal completeopt-=preview

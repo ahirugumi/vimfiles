@@ -7,6 +7,10 @@ set smartcase  " 検索文字列に大文字が含まれている場合は区別
 set incsearch  " インクリメンタルサーチ
 set hlsearch   " 検索文字をハイライト
 
+" バックスラッシュやクエスチョンをうまいこと合わせてエスケープする
+cnoremap <expr> / getcmdtype() == '/' ? '\/' : '/'
+cnoremap <expr> ? getcmdtype() == '?' ? '\?' : '?'
+
 " ハイライト消去
 nmap <ESC><ESC> :nohlsearch<CR><ESC>
 " Ctrl-qでヘルプ

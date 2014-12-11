@@ -53,7 +53,8 @@ endif
   NeoBundle 'thinca/vim-ref'
 
   " tag拡張
-  NeoBundle 'taglist.vim'
+  " NeoBundle 'taglist.vim'
+  NeoBundle 'majutsushi/tagbar'
 
   " エラー箇所をハイライト
   NeoBundle 'errormarker.vim'
@@ -69,6 +70,9 @@ endif
 
   " コメントアウト拡張
   NeoBundle 'vim-scripts/tComment.git'
+
+  " Python補完
+  NeoBundle 'davidhalter/jedi-vim'
 
   " " reST用プラグイン
   " NeoBundle 'Rykka/riv.vim'
@@ -92,8 +96,8 @@ endif
 " ]]]
 
 " バッファ [[[
-  " バッファ管理
-  NeoBundle 'minibufexpl.vim'
+  " " バッファ管理
+  " NeoBundle 'minibufexpl.vim'
 
   " バッファ管理拡張
   NeoBundle 'thinca/vim-openbuf'
@@ -101,11 +105,11 @@ endif
   " ファイラ
   NeoBundle 'Shougo/vimfiler.git'
 
-  " ツリーエクスプローラー
-  NeoBundle 'vtreeexplorer'
+  " " ツリーエクスプローラー
+  " NeoBundle 'vtreeexplorer'
 
-  " vimshell
-  NeoBundle 'Shougo/vimshell.git'
+  " " vimshell
+  " NeoBundle 'Shougo/vimshell.git'
 
   " vimproc(vimshellで必要)
   NeoBundle 'Shougo/vimproc', {
@@ -180,6 +184,9 @@ endif
 
   " フィルタリングと整形
   NeoBundle 'godlygeek/tabular'
+
+  " DrawIt
+  NeoBundle 'vim-scripts/DrawIt'
 " ]]]
 
 " 編集 [[[
