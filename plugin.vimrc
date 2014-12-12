@@ -25,9 +25,20 @@ let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
 " -入力による候補番号の表示
 let g:neocomplcache_enable_quick_match = 1
 " 補完候補の一番先頭を選択状態にする(AutoComplPopと似た動作)
-let g:neocomplcache_enable_auto_select = 1
+" let g:neocomplcache_enable_auto_select = 1
 "ポップアップメニューで表示される候補の数。初期値は100
 let g:neocomplcache_max_list = 20
+
+autocmd FileType python setlocal omnifunc=jedi#completions
+let g:jedi#popup_select_first=0
+let g:jedi#completions_enabled = 0
+let g:jedi#auto_vim_configuration = 0
+if !exists('g:neocomplete#force_omni_input_patterns')
+  let g:neocomplete#force_omni_input_patterns = {}
+endif
+
+" let g:neocomplete#force_omni_input_patterns.python = '\%([^\t]\.\|^\s*@\|^\s*from\s.\+import \|^\s*from \|^\s*import \)\w*'
+let g:neocomplete#force_omni_input_patterns.python = '\h\w*\|[^. \t]\.\w*'
 
 " Define dictionary.
 let g:neocomplcache_dictionary_filetype_lists = {
@@ -165,29 +176,29 @@ let Grep_Skip_Files = '*.bak *~'
 "------------------------------------
 " quickrun.vim
 "------------------------------------
-",rでquickrun実行
-silent! map <unique> <Leader>r <Plug>(quickrun)
+"<C-r>でquickrun実行
+silent! map <unique> <Leader>rr <Plug>(quickrun)
 let g:quickrun_config = {}
 let g:quickrun_config._ = {'runner' : 'vimproc', 'outputter/buffer/split' : ':botright 12sp', "outputter/buffer/into" : 1}
 " let g:quickrun_config._ = {'runner' : 'vimproc'}
-let g:quickrun_config['rspec/bundle'] = {
-  \ 'type': 'rspec/bundle',
-  \ 'command': "rspec",
-  \ 'cmdopt': "-l %{line('.')}",
-  \ 'exec': "bundle exec %c %o %s ",
-  \ 'filetype': 'rspec-result'
-  \}
-let g:quickrun_config['rspec/normal'] = {
-  \ 'type': 'rspec/normal',
-  \ 'command': "rspec",
-  \ 'cmdopt': "-l %{line('.')}",
-  \ 'exec': '%c %o %s',
-  \ 'filetype': 'rspec-result'
-  \}
-function! RSpecQuickrun()
-  let b:quickrun_config = {'type' : 'rspec/bundle'}
-endfunction
-autocmd BufReadPost *_spec.rb call RSpecQuickrun()
+" let g:quickrun_config['rspec/bundle'] = {
+"   \ 'type': 'rspec/bundle',
+"   \ 'command': "rspec",
+"   \ 'cmdopt': "-l %{line('.')}",
+"   \ 'exec': "bundle exec %c %o %s ",
+"   \ 'filetype': 'rspec-result'
+"   \}
+" let g:quickrun_config['rspec/normal'] = {
+"   \ 'type': 'rspec/normal',
+"   \ 'command': "rspec",
+"   \ 'cmdopt': "-l %{line('.')}",
+"   \ 'exec': '%c %o %s',
+"   \ 'filetype': 'rspec-result'
+"   \}
+" function! RSpecQuickrun()
+"   let b:quickrun_config = {'type' : 'rspec/bundle'}
+" endfunction
+" autocmd BufReadPost *_spec.rb call RSpecQuickrun()
 
 " "------------------------------------
 " " taglist.Vim
