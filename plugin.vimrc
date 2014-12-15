@@ -291,7 +291,7 @@ command! Mt :TMiniBufExplorer
 " デフォルトのファイラをvimfilerにする
 let g:vimfiler_as_default_explorer = 1
 " vimfiler起動
-nnoremap <silent> vf :VimFiler<CR>
+nnoremap <silent> vf :VimFilerBufferDir -buffer-name=explorer -split -winwidth=45 -simple -toggle -no-quit<CR>
 
 " "------------------------------------
 " " VTreeExplorer

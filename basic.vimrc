@@ -12,6 +12,7 @@ set nobackup
 set noswapfile                   " スワップなし
 set autoread                     " 開いているファイルが書き換えられたら自動的に開き直す
 set hidden                       " 編集中でもファイルを開けるようにする
+set switchbuf=useopen            " 新しく開く代わりにすでに開いてあるバッファを開く
 set backspace=indent,eol,start   " バックスペースで色々消せる用にする
 set formatoptions=lmoq           " 自動整形ON
 " ビープをならさない
