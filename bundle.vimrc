@@ -106,11 +106,9 @@ endif
   " ファイラ
   NeoBundle 'Shougo/vimfiler.git'
 
-  " " ツリーエクスプローラー
-  " NeoBundle 'vtreeexplorer'
 
-  " " vimshell
-  " NeoBundle 'Shougo/vimshell.git'
+  " vimshell
+  NeoBundle 'Shougo/vimshell.git'
 
   " vimproc(vimshellで必要)
   NeoBundle 'Shougo/vimproc', {
@@ -129,15 +127,6 @@ endif
   " URLを扱うライブラリ
   NeoBundle 'tyru/urilib.vim'
 " ]]]
-
-" " Redmine [[[
-"   " Redmine on Vim
-"   NeoBundle 'mattn/vim-metarw-redmine'
-"   NeoBundle 'basyura/rmine.vim'
-"
-"   " A framework to read/write fake:path
-"   NeoBundle 'kana/vim-metarw'
-" " ]]]
 
 " 表示 [[[
   " solarized
@@ -185,8 +174,8 @@ endif
   " Align
   NeoBundle 'Align'
 
-  " フィルタリングと整形
-  NeoBundle 'godlygeek/tabular'
+  " " フィルタリングと整形
+  " NeoBundle 'godlygeek/tabular'
 
   " DrawIt
   NeoBundle 'vim-scripts/DrawIt'
