@@ -6,10 +6,10 @@ filetype off
 if has('vim_starting')
   set runtimepath+=~/vimfiles/bundle/neobundle.vim
   " call neobundle#rc(expand('~/vimfiles/bundle/'))
-  call neobundle#begin(expand('~/vimfiles/bundle/'))
-  NeoBundleFetch 'Shougo/neobundle.vim'
-  call neobundle#end()
 endif
+
+call neobundle#begin(expand('~/vimfiles/bundle/'))
+NeoBundleFetch 'Shougo/neobundle.vim'
 
 " 入力補完 [[[
   " neocomplcache
@@ -233,5 +233,5 @@ endif
   " シンタックスハイライトされた単語をテキストオブジェクトにする
   NeoBundle 'kana/vim-textobj-syntax.git'
 " ]]]
-
+call neobundle#end()
 filetype plugin indent on
