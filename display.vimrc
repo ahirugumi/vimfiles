@@ -55,7 +55,7 @@ set matchtime=3       " 括弧のハイライトは、3秒だけ
 set matchpairs& matchpairs+=<:>       " <, >をペアに追加
 " set listchars=tab:≫-,trail:-,extends:≫,precedes:≪,nbsp:%,eol:↲ " 不可視文字の表示形式
 if has('win32')
-  set listchars=tab:>-,extends:>,trail:-,precedes:<,eol:nr2char(0x21B2)
+  set listchars=tab:>-,extends:>,trail:-,precedes:<,eol:¬
 else
   set listchars=tab:>-,extends:>,trail:-,precedes:<,eol:↲
 endif
