@@ -10,12 +10,13 @@ if has('gui_macvim')
     set number
     " フォント設定
     set guifont=Ricty:h14
-endif
 
-"フルスクリーンの設定
-if has("gui_running")
-  set fuoptions=maxvert,maxhorz
-  "au GUIEnter * set fullscreen
+    "これはMacVimだけ？
+    "フルスクリーンの設定
+    if has("gui_running")
+      set fuoptions=maxvert,maxhorz
+      "au GUIEnter * set fullscreen
+    endif
 endif
 
 let g:save_window_file = expand('~/.vimwinpos')
