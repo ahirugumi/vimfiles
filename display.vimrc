@@ -54,7 +54,12 @@ set showmatch         " 括弧をハイライト
 set matchtime=3       " 括弧のハイライトは、3秒だけ
 set matchpairs& matchpairs+=<:>       " <, >をペアに追加
 " set listchars=tab:≫-,trail:-,extends:≫,precedes:≪,nbsp:%,eol:↲ " 不可視文字の表示形式
-set listchars=tab:>-,extends:>,trail:-,precedes:<,eol:↲
+if has('win32')
+  set listchars=tab:>-,extends:>,trail:-,precedes:<,eol:nr2char(0x21B2)
+else
+  set listchars=tab:>-,extends:>,trail:-,precedes:<,eol:↲
+endif
+
 hi SpecialKey ctermfg=237 guifg=#3a3a3a
 hi NonText ctermfg=66 guifg=#5f8787
 
