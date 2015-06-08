@@ -614,33 +614,30 @@ command! GG :GitGutterToggle
 nnoremap [unite] <Nop>
 nmap <space><space> [unite]
 
-nnoremap [unite]u  :<C-u>Unite -no-split<Space>
-
+" 常用セット
+nnoremap <silent> [unite]u  :<C-u>Unite -no-split buffer file_mru<CR>
 " 全部乗せ
 nnoremap <silent> [unite]a  :<C-u>UniteWithCurrentDir -no-split -buffer-name=files buffer file_mru bookmark file<CR>
 " ファイル一覧
 nnoremap <silent> [unite]f  :<C-u>Unite -no-split -buffer-name=files file<CR>
 " バッファ一覧
 nnoremap <silent> [unite]b  :<C-u>Unite -no-split buffer<CR>
-" 常用セット
-nnoremap <silent> [unite]u  :<C-u>Unite -no-split buffer file_mru<CR>
 " 最近使用したファイル一覧
 nnoremap <silent> [unite]m  :<C-u>Unite -no-split file_mru<CR>
 " 現在のバッファのカレントディレクトリからファイル一覧
 nnoremap <silent> [unite]d  :<C-u>UniteWithBufferDir -no-split file<CR>
-" snippet一覧
-nnoremap <silent> [unite]s  :<C-u>Unite snippet<CR>
-
-" nnoremap <silent> [unite]b  :<C-u>UniteWithBufferDir -buffer-name=files buffer file_mru bookmark file<CR>
+" レジスタの一覧
+nnoremap <silent> [unite]r  :<C-u>Unite register<CR>
+" アウトライン
+nnoremap <silent> [unite]o  :<C-u>Unite outline<CR>
+" タブ
+nnoremap <silent> [unite]t  :<C-u>Unite tab<CR>
+" ウィンドウ
+nnoremap <silent> [unite]w  :<C-u>Unite window<CR>
+" ブックマーク
+nnoremap <silent> [unite]c  :<C-u>Unite bookmark<CR>
 
 let g:yankring_zap_keys = ""
-" from basyura/unite-rails
-nnoremap <silent> [unite]rm  :<C-u>Unite -no-split rails/model<CR>
-nnoremap <silent> [unite]rc  :<C-u>Unite -no-split rails/controller<CR>
-nnoremap <silent> [unite]rv  :<C-u>Unite -no-split rails/view<CR>
-nnoremap <silent> [unite]rl  :<C-u>Unite -no-split rails/lib<CR>
-nnoremap <silent> [unite]rj  :<C-u>Unite -no-split rails/javascript<CR>
-nnoremap <silent> [unite]rs  :<C-u>Unite -no-split rails/spec<CR>
 
 autocmd FileType unite call s:unite_my_settings()
 function! s:unite_my_settings()"{{{
