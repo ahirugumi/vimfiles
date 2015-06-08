@@ -4,8 +4,11 @@
 set ffs=unix,dos,mac  " 改行文字
 " デフォルトエンコーディング
 if has('win32')
-  set encoding=Cp932
-  set fileencoding=Cp932
+  " もういいかげんSJISやめた。
+  set encoding=utf-8
+  set fileencoding=utf-8
+  " set encoding=Cp932
+  " set fileencoding=Cp932
 else
   set encoding=utf-8
   set fileencoding=utf-8
