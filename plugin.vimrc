@@ -200,27 +200,6 @@ let g:quickrun_config._ = {'runner' : 'vimproc', 'outputter/buffer/split' : ':bo
 " endfunction
 " autocmd BufReadPost *_spec.rb call RSpecQuickrun()
 
-" "------------------------------------
-" " taglist.Vim
-" "------------------------------------
-" " 関数一覧
-" " set tags=tags
-" " set tags+=~/.tags
-" if has('win32')
-"   let Tlist_Ctags_Cmd = 'C:\Users\m16088h\ctags\ctags.exe' " ctagsのパス
-" elseif has('mac') || has('macunix')
-"   let Tlist_Ctags_Cmd = '/Applications/MacVim.app/Contents/MacOS/ctags' " ctagsのパス
-" endif
-" let Tlist_Show_One_File = 1               " 現在編集中のソースのタグしか表示しない
-" let Tlist_Exit_OnlyWindow = 1             " taglistのウィンドーが最後のウィンドーならばVimを閉じる
-" "let Tlist_Use_Right_Window = 1            " 右側でtaglistのウィンドーを表示
-" let Tlist_Enable_Fold_Column = 1          " 折りたたみ
-" let Tlist_Auto_Open = 1                   " 自動表示
-" let Tlist_Auto_Update = 1
-" let Tlist_WinWidth = 30
-" map <silent> <leader>l :Tlist<CR>
-" nmap <Leader>tl :CMiniBufExplorer<CR>:TMiniBufExplorer<CR>
-
 "------------------------------------
 " Tagbar.vim
 "------------------------------------
@@ -271,99 +250,23 @@ autocmd User Rails call SetUpRailsSetting()
 
 " +++++++++++++++++++++++ バッファ +++++++++++++++++++++++
 "------------------------------------
-" MiniBufExplorer
-"------------------------------------
-"set minibfexp
-let g:miniBufExplMapWindowNavVim=1 "hjklで移動
-let g:miniBufExplSplitBelow=0  " Put new window above
-let g:miniBufExplMapWindowNavArrows=1
-let g:miniBufExplMapCTabSwitchBufs=1
-let g:miniBufExplModSelTarget=1
-let g:miniBufExplSplitToEdge=1
-let g:miniBufExplMaxSize = 10
-
-":MtでMiniBufExplorerの表示トグル
-command! Mt :TMiniBufExplorer
-
-"------------------------------------
 " vimfiler.vim
 "------------------------------------
 " デフォルトのファイラをvimfilerにする
 let g:vimfiler_as_default_explorer = 1
 " vimfiler起動
-nnoremap <silent> vf :VimFilerBufferDir -buffer-name=explorer -split -winwidth=45 -simple -toggle -no-quit<CR>
+nnoremap <silent> vf :VimFilerBufferDir -buffer-name=explorer -split -winwidth=35 -simple -toggle -no-quit<CR>
 
-" "------------------------------------
-" " VTreeExplorer
-" "------------------------------------
-" let g:treeExplVertical=1
-" "<Leader>t<Space>でディレクトリツリー表示
-" noremap <Leader>t<Space> :VSTreeExplore<CR>
-" "分割したウィンドウのサイズ
-" let g:treeExplWinSize=30
-
-" "------------------------------------
-" " vimshell
-" "------------------------------------
-" " vimshell起動
-" nnoremap <silent> vs :VimShell<CR>
-" let g:vimshell_user_prompt = 'fnamemodify(getcwd(), ":~")'
-" let g:vimshell_right_prompt = 'vimshell#vcs#info("(%s)-[%b]", "(%s)-[%b|%a]")'
-" let g:vimshell_enable_smart_case = 1
-"
-" if has('win32') || has('win64')
-"   " Display user name on Windows.
-"   let g:vimshell_prompt = $USERNAME."% "
-" else
-"   " Display user name on Linux.
-"   let g:vimshell_prompt = $USER."% "
-"
-"   call vimshell#set_execute_file('bmp,jpg,png,gif', 'gexe eog')
-"   call vimshell#set_execute_file('mp3,m4a,ogg', 'gexe amarok')
-"   let g:vimshell_execute_file_list['zip'] = 'zipinfo'
-"   call vimshell#set_execute_file('tgz,gz', 'gzcat')
-"   call vimshell#set_execute_file('tbz,bz2', 'bzcat')
-" endif
-"
-" function! g:my_chpwd(args, context)
-"   call vimshell#execute('echo "chpwd"')
-" endfunction
-" function! g:my_emptycmd(cmdline, context)
-"   call vimshell#execute('echo "emptycmd"')
-"   return a:cmdline
-" endfunction
-" function! g:my_preprompt(args, context)
-"   call vimshell#execute('echo "preprompt"')
-" endfunction
-" function! g:my_preexec(cmdline, context)
-"   call vimshell#execute('echo "preexec"')
-"
-"   if a:cmdline =~# '^\s*diff\>'
-"     call vimshell#set_syntax('diff')
-"   endif
-"   return a:cmdline
-" endfunction
-"
-" autocmd FileType vimshell
-" \ call vimshell#altercmd#define('g', 'git')
-" \| call vimshell#altercmd#define('i', 'iexe')
-" \| call vimshell#altercmd#define('l', 'll')
-" \| call vimshell#altercmd#define('ll', 'ls -al')
-" \| call vimshell#hook#set('chpwd', ['g:my_chpwd'])
-" \| call vimshell#hook#set('emptycmd', ['g:my_emptycmd'])
-" \| call vimshell#hook#set('preprompt', ['g:my_preprompt'])
-" \| call vimshell#hook#set('preexec', ['g:my_preexec'])
-
-" Redmine
 "------------------------------------
-" mattn/vim-metarw-redmine
+" vimshell
 "------------------------------------
-let g:metarw_redmine_server = ''
-let g:metarw_redmine_apikey = ''
-let g:rmine_server_url = ''
-let g:rmine_access_key = ''
-let g:unite_yarm_server_url = ''
-let g:unite_yarm_access_key = ''
+" vimshell起動
+nnoremap <silent> vs :VimShell<CR>
+let g:vimshell_user_prompt = 'fnamemodify(getcwd(), ":~")'
+let g:vimshell_enable_smart_case = 1
+autocmd FileType vimshell
+\ call vimshell#altercmd#define('ll', 'ls -al')
+\| call vimshell#altercmd#define('l', 'll')
 
 " +++++++++++++++++++++++ 表示 +++++++++++++++++++++++
 "------------------------------------
@@ -505,83 +408,27 @@ function! MyCharCode()
   return "'". char ."' ". nr
 endfunction
 
-" let g:lightline = {
-"         \ 'colorscheme': 'solarized',
-"         \ 'mode_map': {'c': 'NORMAL'},
-"         \ 'active': {
-"         \   'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'filename' ] ]
-"         \ },
-"         \ 'component_function': {
-"         \   'modified': 'MyModified',
-"         \   'readonly': 'MyReadonly',
-"         \   'fugitive': 'MyFugitive',
-"         \   'filename': 'MyFilename',
-"         \   'fileformat': 'MyFileformat',
-"         \   'filetype': 'MyFiletype',
-"         \   'fileencoding': 'MyFileencoding',
-"         \   'mode': 'MyMode'
-"         \ }
-"         \ }
-"
-" function! MyModified()
-"   return &ft =~ 'help\|vimfiler\|gundo' ? '' : &modified ? '+' : &modifiable ? '' : '-'
-" endfunction
-"
-" function! MyReadonly()
-"   return &ft !~? 'help\|vimfiler\|gundo' && &readonly ? 'x' : ''
-" endfunction
-"
-" function! MyFilename()
-"   return ('' != MyReadonly() ? MyReadonly() . ' ' : '') .
-"         \ (&ft == 'vimfiler' ? vimfiler#get_status_string() :
-"         \  &ft == 'unite' ? unite#get_status_string() :
-"         \  &ft == 'vimshell' ? vimshell#get_status_string() :
-"         \ '' != expand('%:t') ? expand('%:t') : '[No Name]') .
-"         \ ('' != MyModified() ? ' ' . MyModified() : '')
-" endfunction
-"
-" function! MyFugitive()
-"   try
-"     if &ft !~? 'vimfiler\|gundo' && exists('*fugitive#head')
-"       return fugitive#head()
-"     endif
-"   catch
-"   endtry
-"   return ''
-" endfunction
-"
-" function! MyFileformat()
-"   return winwidth('.') > 70 ? &fileformat : ''
-" endfunction
-"
-" function! MyFiletype()
-"   return winwidth('.') > 70 ? (strlen(&filetype) ? &filetype : 'no ft') : ''
-" endfunction
-"
-" function! MyFileencoding()
-"   return winwidth('.') > 70 ? (strlen(&fenc) ? &fenc : &enc) : ''
-" endfunction
-"
-" function! MyMode()
-"   return winwidth('.') > 60 ? lightline#mode() : ''
-" endfunction
-
 "------------------------------------
 " vim-indent-guides
 "------------------------------------
-nnoremap <silent> <Space>id :<C-u>IndentGuidesToggle<Enter>
+" 起動時にON
+let g:indent_guides_enable_on_vim_startup=1
+" オートを無効
 let g:indent_guides_auto_colors = 0
-let g:indent_guides_start_level = 4
-let g:indent_guides_guide_size = 1
-autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red ctermbg=3
-autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=4
-if 'dark' == &background
-    hi IndentGuidesOdd  ctermbg=black
-    hi IndentGuidesEven ctermbg=darkgrey
-else
-    hi IndentGuidesOdd  ctermbg=white
-    hi IndentGuidesEven ctermbg=lightgrey
-endif
+" 2個目のインデントから
+let g:indent_guides_start_level = 2
+" インデントの幅
+let g:indent_guides_guide_size  = 1
+" 奇数、偶数のラインの色
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=255
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=254
+" if 'dark' == &background
+"     hi IndentGuidesOdd  ctermbg=black
+"     hi IndentGuidesEven ctermbg=darkgrey
+" else
+"     autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=white
+"     autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=lightgrey
+" endif
 
 " +++++++++++++++++++++++ Git +++++++++++++++++++++++
 "------------------------------------
