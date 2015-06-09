@@ -54,7 +54,6 @@ NeoBundleFetch 'Shougo/neobundle.vim'
   NeoBundle 'thinca/vim-ref'
 
   " tag拡張
-  " NeoBundle 'taglist.vim'
   NeoBundle 'majutsushi/tagbar'
 
   " エラー箇所をハイライト
@@ -74,9 +73,9 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
   " Python補完
   NeoBundle 'davidhalter/jedi-vim'
+  " Pythonインデント拡張
+  NeoBundle 'hynek/vim-python-pep8-indent'
 
-  " " reST用プラグイン
-  " NeoBundle 'Rykka/riv.vim'
 " ]]]
 
 " シンタックス [[[
@@ -97,15 +96,9 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 " ]]]
 
 " バッファ [[[
-  " " バッファ管理
-  " NeoBundle 'minibufexpl.vim'
-
-  " " バッファ管理拡張
-  " NeoBundle 'thinca/vim-openbuf'
 
   " ファイラ
   NeoBundle 'Shougo/vimfiler.git'
-
 
   " vimshell
   NeoBundle 'Shougo/vimshell.git'
@@ -126,6 +119,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
   " URLを扱うライブラリ
   NeoBundle 'tyru/urilib.vim'
+
 " ]]]
 
 " 表示 [[[
@@ -141,6 +135,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
   " インデントガイド
   NeoBundle 'nathanaelkane/vim-indent-guides'
+
 " ]]]
 
 " Git [[[
@@ -152,6 +147,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
   " カーソルの下の単語をブラウザで開く
   NeoBundle 'tyru/open-browser.vim'
+
 " ]]]
 
 " Unite [[[
@@ -173,9 +169,6 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
   " Align
   NeoBundle 'Align'
-
-  " " フィルタリングと整形
-  " NeoBundle 'godlygeek/tabular'
 
   " DrawIt
   NeoBundle 'vim-scripts/DrawIt'
