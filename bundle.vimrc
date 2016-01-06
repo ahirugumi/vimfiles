@@ -28,42 +28,19 @@ NeoBundleFetch 'Shougo/neobundle.vim'
   " <Leader><Leader>f 検索して移動
   NeoBundle 'EasyMotion'
 
-  " パーセント「%」キーで対応する括弧へカーソルを移動する
-  NeoBundle 'matchit.zip'
-
-  " " matchit拡張のruby用
-  " NeoBundle 'ruby-matchit'
-
   " 日本語単語単位移動強化
   NeoBundle 'deton/jasegment.vim'
-" ]]]
-
-" grep [[[
-  " grep
-  NeoBundle 'grep.vim'
-
-  " grep拡張。いろいろな言語の正規表現が使える
-  NeoBundle 'eregex.vim'
 " ]]]
 
 " プログラミング [[[
   " プログラムを実行
   NeoBundle 'thinca/vim-quickrun'
 
-  " ヘルプ、リファレンス参照
-  NeoBundle 'thinca/vim-ref'
-
   " tag拡張
   NeoBundle 'majutsushi/tagbar'
 
-  " エラー箇所をハイライト
-  NeoBundle 'errormarker.vim'
-
   " ruby拡張
   NeoBundle 'vim-ruby/vim-ruby'
-
-  " rails拡張
-  NeoBundle 'tpope/vim-rails'
 
   " vimdoc 日本語
   NeoBundle 'yuroyoro/vimdoc_ja'
@@ -73,6 +50,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
   " Python補完
   NeoBundle 'davidhalter/jedi-vim'
+
   " Pythonインデント拡張
   NeoBundle 'hynek/vim-python-pep8-indent'
 
@@ -81,9 +59,6 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 " シンタックス [[[
   " markdown
   NeoBundle 'tpope/vim-markdown'
-
-  " coffee script
-  NeoBundle 'kchmck/vim-coffee-script'
 
   " JavaScript
   NeoBundle 'JavaScript-syntax'
@@ -100,19 +75,16 @@ NeoBundleFetch 'Shougo/neobundle.vim'
   " ファイラ
   NeoBundle 'Shougo/vimfiler.git'
 
-  " vimshell
-  NeoBundle 'Shougo/vimshell.git'
-
-  " vimproc(vimshellで必要)
-  NeoBundle 'Shougo/vimproc', {
-      \ 'build' : {
-      \     'mac' : 'make -f make_mac.mak',
-      \     'linux' : 'make',
-      \    },
-      \ }
-
-  " ex commond拡張
-  NeoBundle 'tyru/vim-altercmd'
+  " " vimshell
+  " NeoBundle 'Shougo/vimshell.git'
+  "
+  " " vimproc(vimshellで必要)
+  " NeoBundle 'Shougo/vimproc', {
+  "     \ 'build' : {
+  "     \     'mac' : 'make -f make_mac.mak',
+  "     \     'linux' : 'make',
+  "     \    },
+  "     \ }
 
   " vimからweb service呼び出し
   NeoBundle 'mattn/webapi-vim'
@@ -123,11 +95,11 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 " ]]]
 
 " 表示 [[[
+  " カーソルの下の単語をブラウザで開く
+  NeoBundle 'tyru/open-browser.vim'
+
   " solarized
   NeoBundle 'altercation/vim-colors-solarized'
-
-  " wombat
-  NeoBundle 'jeffreyiacono/vim-colors-wombat'
 
   " ステータスライン拡張
   " NeoBundle 'Lokaltog/vim-powerline'
@@ -135,7 +107,6 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
   " インデントガイド
   NeoBundle 'nathanaelkane/vim-indent-guides'
-
 " ]]]
 
 " Git [[[
@@ -145,21 +116,14 @@ NeoBundleFetch 'Shougo/neobundle.vim'
   " コミット差異を表示
   NeoBundle 'airblade/vim-gitgutter'
 
-  " カーソルの下の単語をブラウザで開く
-  NeoBundle 'tyru/open-browser.vim'
-
 " ]]]
 
 " Unite [[[
   NeoBundle 'Shougo/unite.vim'
   NeoBundle 'tsukkee/unite-help'
   NeoBundle 'h1mesuke/unite-outline'
-  NeoBundle 'basyura/unite-rails'
   NeoBundle 'thinca/vim-unite-history'
   NeoBundle 'tsukkee/unite-tag'
-  NeoBundle 'choplin/unite-vim_hacks'
-  NeoBundle 'basyura/unite-yarm'
-  NeoBundle 'ujihisa/unite-colorscheme'
   NeoBundle 'Shougo/neomru.vim'
 " ]]]
 
@@ -170,8 +134,6 @@ NeoBundleFetch 'Shougo/neobundle.vim'
   " Align
   NeoBundle 'Align'
 
-  " DrawIt
-  NeoBundle 'vim-scripts/DrawIt'
 " ]]]
 
 " 編集 [[[
@@ -198,9 +160,6 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
   " camel-caseへ変換
   NeoBundle 'operator-camelize'
-
-  " <C-a>でtrue/falseやok/ngをトグルする
-  NeoBundle 'taku-o/vim-toggle'
 
   " undo履歴を追っかける
   NeoBundle 'Gundo'
