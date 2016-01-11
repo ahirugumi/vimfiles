@@ -121,9 +121,13 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 " Unite [[[
   NeoBundle 'Shougo/unite.vim'
   NeoBundle 'tsukkee/unite-help'
-  NeoBundle 'h1mesuke/unite-outline'
-  NeoBundle 'thinca/vim-unite-history'
   NeoBundle 'tsukkee/unite-tag'
+  NeoBundle 'h1mesuke/unite-outline'
+  NeoBundle 'ujihisa/unite-font'
+  NeoBundle 'tacroe/unite-mark'
+  NeoBundle 'thinca/vim-unite-history'
+  NeoBundle 'ujihisa/unite-launch'
+  NeoBundle 'sgur/unite-qf'
   NeoBundle 'Shougo/neomru.vim'
 " ]]]
 
