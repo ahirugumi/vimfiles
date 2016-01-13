@@ -78,13 +78,13 @@ NeoBundleFetch 'Shougo/neobundle.vim'
   " " vimshell
   " NeoBundle 'Shougo/vimshell.git'
   "
-  " " vimproc(vimshellで必要)
-  " NeoBundle 'Shougo/vimproc', {
-  "     \ 'build' : {
-  "     \     'mac' : 'make -f make_mac.mak',
-  "     \     'linux' : 'make',
-  "     \    },
-  "     \ }
+  " vimproc(vimshellで必要)
+  NeoBundle 'Shougo/vimproc', {
+      \ 'build' : {
+      \     'mac' : 'make -f make_mac.mak',
+      \     'linux' : 'make',
+      \    },
+      \ }
 
   " vimからweb service呼び出し
   NeoBundle 'mattn/webapi-vim'
@@ -131,6 +131,30 @@ NeoBundleFetch 'Shougo/neobundle.vim'
   NeoBundle 'Shougo/neomru.vim'
 " ]]]
 
+" operator [[[
+  " operatorを独自に定義できる
+  NeoBundle 'operator-user'
+
+  " コメント/アンコメント
+  NeoBundle 'emonkak/vim-operator-comment'
+
+  " 選択したオブジェクトをソートする
+  NeoBundle 'emonkak/vim-operator-sort'
+
+  " ヤンクしたもので置換する
+  NeoBundle 'operator-replace'
+
+  " surroundのoperator版
+  NeoBundle 'rhysd/vim-operator-surround'
+
+  " 選択したものを検索する
+  NeoBundle 'sgur/vim-operator-openbrowser'
+
+  " camel-caseへ変換
+  NeoBundle 'operator-camelize'
+
+" ]]]
+
 " 整形 [[[
   " マルチバイト対応整形
   NeoBundle 'h1mesuke/vim-alignta'
@@ -145,13 +169,10 @@ NeoBundleFetch 'Shougo/neobundle.vim'
   NeoBundle 'fuenor/qfixhowm.git'
 
   " テキストを括弧で囲む／削除する
-  NeoBundle 'tpope/vim-surround'
+  "NeoBundle 'tpope/vim-surround'
 
   " ヤンク拡張
   NeoBundle 'YankRing.vim'
-
-  " ヤンクしたもので置換する
-  NeoBundle 'operator-replace'
 
   " エンコーディング拡張
   NeoBundle 'banyan/recognize_charcode.vim'
@@ -159,35 +180,71 @@ NeoBundleFetch 'Shougo/neobundle.vim'
   " +clipboardでコンパイルしていないくてもclipboardが使える
   NeoBundle 'kana/vim-fakeclip'
 
-  " operatorを独自に定義できる
-  NeoBundle 'operator-user'
-
-  " camel-caseへ変換
-  NeoBundle 'operator-camelize'
-
   " undo履歴を追っかける
   NeoBundle 'Gundo'
 " ]]]
 
 " テキストオブジェクト [[[
-  " テキストオブジェクトの定義できる
-  NeoBundle 'textobj-user'
-
   " 色々なものをテキストオブジェクトにする
   NeoBundle 'thinca/vim-textobj-plugins.git'
+
+  " テキストオブジェクトの定義できる
+  NeoBundle 'kana/vim-textobj-user'
+
+  " カーソル行 al, li
+  NeoBundle 'kana/vim-textobj-line'
+
+ " シンタックスハイライトされた単語をテキストオブジェクトにする ay, iy
+ NeoBundle 'kana/vim-textobj-syntax'
+
+ " 「foo」 or 【bar】など ajb, ijb
+ NeoBundle 'kana/vim-textobj-jabraces'
+
+ " インデントされたものをテキストオブジェクトにする
+ NeoBundle 'kana/vim-textobj-indent.git'
+
+  " 日付と時刻 ada, ida
+  NeoBundle 'kana/vim-textobj-datetime'
+
+  " 任意の区切り文字の間 af, if
+  NeoBundle 'thinca/vim-textobj-between'
+
+  " コメント ac, ic
+  NeoBundle 'thinca/vim-textobj-comment'
 
   " 最後に検索されたものをテキストオブジェクトにする
   NeoBundle 'kana/vim-textobj-lastpat.git'
 
-  " インデントされたものをテキストオブジェクトにする
-  NeoBundle 'kana/vim-textobj-indent.git'
+  " ASCII文字とマルチバイト文字の境界を区切り am, im
+  NeoBundle 'deton/textobj-mbboundary.vim'
 
-  " vimの最新当てたらエラーになって使えなくなった。おかしい。
-  " " 関数の中身をテキストオブジェクトにする
-  " NeoBundle 'kana/vim-textobj-function.git'
+  " 日本語に対応している WORD am, im
+  NeoBundle 'deton/textobj-nonblankchars.vim'
 
-  " シンタックスハイライトされた単語をテキストオブジェクトにする
-  NeoBundle 'kana/vim-textobj-syntax.git'
+  " URL au, iu
+  NeoBundle 'mattn/vim-textobj-url'
+
+  "  連続したスペース aS, iS
+  NeoBundle 'saihoooooooo/vim-textobj-space'
+
+  " Rubyのブロック arr, irr
+  NeoBundle 'rhysd/vim-textobj-ruby'
+
+  " 関数の引数 a, , i,
+  NeoBundle 'sgur/vim-textobj-parameter'
+
+  " 任意の複数の括弧のいずれか asb, isb
+  NeoBundle 'osyo-manga/vim-textobj-multiblock'
+
+  " インデントの空白行 ao, io
+  NeoBundle 'glts/vim-textobj-indblock'
+
+  " Python af, if
+  NeoBundle 'bps/vim-textobj-python'
+
+  " HTML ahf, ihf
+  NeoBundle 'mjbrownie/html-textobjects'
+
 " ]]]
 call neobundle#end()
 filetype plugin indent on
