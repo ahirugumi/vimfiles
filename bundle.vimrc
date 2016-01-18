@@ -106,7 +106,8 @@ NeoBundleFetch 'Shougo/neobundle.vim'
   NeoBundle 'itchyny/lightline.vim'
 
   " インデントガイド
-  NeoBundle 'nathanaelkane/vim-indent-guides'
+  " NeoBundle 'nathanaelkane/vim-indent-guides'
+  NeoBundle 'Yggdroot/indentLine'
 " ]]]
 
 " Git [[[

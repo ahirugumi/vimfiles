@@ -1,16 +1,15 @@
 "set encoding=utf-8
 let g:Powerline_symbols = 'fancy'
-set guifont=CodeM:h12
+#set guifont=CodeM:h12
+" フォント設定
+set guifont=Ricty:h16
 if has('gui_macvim')
-  set guifont=Ricty:h14
   set showtabline=2  " タブを常に表示
   "set imdisable  " IMを無効化
   set noimdisableactivate
   "set transparency=30  " 透明度を指定
   set antialias
   set number
-  " フォント設定
-  set guifont=Ricty:h14
 
   "これはMacVimだけ？
   "フルスクリーンの設定

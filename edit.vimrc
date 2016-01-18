@@ -10,7 +10,7 @@ inoremap <silent> <ESC> <ESC>:set iminsert=0<CR>
 
 " Tabキーを空白に変換
 set expandtab
-" <C-r>で改行
+" <C-t>で改行
 nnoremap <C-t> :<C-u>call append(expand('.'), '')<Cr>j
 " yeでカーソル位置にある単語をレジスタに追加
 nmap ye ;let @"=expand("<cword>")<CR>
@@ -28,9 +28,9 @@ nmap y0 y^
 " カーソルから行頭まで削除
 nnoremap <silent> <C-d> d0
 " カーソルから行頭まで削除(インサートモード)
-inoremap <silent> <C-b> <Esc>lc^
+inoremap <silent> <C-b> <Esc>lc$
 " カーソルから行末まで削除(インサートモード)
-inoremap <silent> <C-d> <Esc>lc$
+inoremap <silent> <C-d> <Esc>lc^
 " 保存時に行末の空白を除去する（条件付き）
 " autocmd BufWritePre * :%s/\s\+$//ge
 autocmd BufWritePre * call s:strip_trailing_whitespace()

@@ -206,13 +206,6 @@ let g:quickrun_config._ = {'runner' : 'vimproc', 'outputter/buffer/split' : ':bo
 nmap <Leader>t :TagbarToggle<CR>
 
 "------------------------------------
-" errormarker.vim
-"------------------------------------
-" disable default shortcut mapping and re-define to <Leader>ec
-let g:errormarker_disablemappings = 1
-nmap <silent> <unique> <Leader>ec :ErrorAtCursor<CR>
-
-"------------------------------------
 " vim-rails.vim
 "------------------------------------
 let g:rails_some_option = 1
@@ -305,21 +298,24 @@ let g:lightline = {
         \   'charcode': 'MyCharCode',
         \   'gitgutter': 'MyGitGutter'
         \ },
+        \ 'separator':    { 'left': "・ω)",  'right': "(ω・" },
+        \ 'subseparator': { 'left': "✪",  'right': "✪" },
         \ }
 
+        " \ 'separator': { 'left': '⮀',  'right': '⮂' },
+        " \ 'subseparator': { 'left': '⮁',  'right': '⮃' }
 function! MyModified()
   return &ft =~ 'help\|vimfiler\|gundo' ? '' : &modified ? '+' : &modifiable ? '' : '-'
 endfunction
 
 function! MyReadonly()
-  return &ft !~? 'help\|vimfiler\|gundo' && &ro ? '⭤' : ''
+  return &ft !~? 'help\|vimfiler\|gundo' && &readonly ? '⭤' : ''
 endfunction
 
 function! MyFilename()
   return ('' != MyReadonly() ? MyReadonly() . ' ' : '') .
         \ (&ft == 'vimfiler' ? vimfiler#get_status_string() :
         \  &ft == 'unite' ? unite#get_status_string() :
-        \  &ft == 'vimshell' ? substitute(b:vimshell.current_dir,expand('~'),'~','') :
         \ '' != expand('%:t') ? expand('%:t') : '[No Name]') .
         \ ('' != MyModified() ? ' ' . MyModified() : '')
 endfunction
@@ -411,24 +407,7 @@ endfunction
 "------------------------------------
 " vim-indent-guides
 "------------------------------------
-" 起動時にON
-let g:indent_guides_enable_on_vim_startup=1
-" オートを無効
-let g:indent_guides_auto_colors = 0
-" 2個目のインデントから
-let g:indent_guides_start_level = 2
-" インデントの幅
-let g:indent_guides_guide_size  = 1
-" 奇数、偶数のラインの色
-autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=255
-autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=254
-" if 'dark' == &background
-"     hi IndentGuidesOdd  ctermbg=black
-"     hi IndentGuidesEven ctermbg=darkgrey
-" else
-"     autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=white
-"     autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=lightgrey
-" endif
+let g:indentLine_fileTypeExclude = ['help', 'tagbar', 'unite']
 
 " +++++++++++++++++++++++ Git +++++++++++++++++++++++
 "------------------------------------

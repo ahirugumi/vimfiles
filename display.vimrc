@@ -3,7 +3,6 @@
 "=========================================================================================
 
 " カラースキーマ
-" colorscheme wombat
 colorschem solarized
 set background=light
 
@@ -35,6 +34,7 @@ hi DiffAdd    ctermfg=black ctermbg=2
 hi DiffChange ctermfg=black ctermbg=3
 hi DiffDelete ctermfg=black ctermbg=6
 hi DiffText   ctermfg=black ctermbg=7
+
 "-------------------------------------------------------------------------------
 " ステータスライン StatusLine
 "-------------------------------------------------------------------------------
@@ -72,7 +72,6 @@ match ZenkakuSpace /　/
 " カーソル行の設定
 hi clear CursorLine
 hi CursorLine gui=underline
-" highlight CursorLine ctermbg=black guibg=black
 highlight CursorLine ctermbg=LightGray guibg=LightGray
 
 " Python, Rubyの場合は、プレビューをOFFにする
