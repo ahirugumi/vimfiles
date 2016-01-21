@@ -164,14 +164,6 @@ vmap <Leader>fu <Plug>(openbrowser-open)
 " カーソル下のキーワードをググる
 nnoremap <Leader>fs :<C-u>OpenBrowserSearch<Space><C-r><C-w><Enter>
 
-" +++++++++++++++++++++++ Grep +++++++++++++++++++++++
-" ------------------------------------
-" grep.vim
-"------------------------------------
-" 検索外のディレクトリ、ファイルパターン
-let Grep_Skip_Dirs = '.svn .git .hg'
-let Grep_Skip_Files = '*.bak *~'
-
 " +++++++++++++++++++++++ プログラミング +++++++++++++++++++++++
 "------------------------------------
 " quickrun.vim
@@ -205,40 +197,6 @@ let g:quickrun_config._ = {'runner' : 'vimproc', 'outputter/buffer/split' : ':bo
 "------------------------------------
 nmap <Leader>t :TagbarToggle<CR>
 
-"------------------------------------
-" vim-rails.vim
-"------------------------------------
-let g:rails_some_option = 1
-let g:rails_level = 4
-let g:rails_syntax = 1
-let g:rails_statusline = 1
-let g:rails_url='http://localhost:3000'
-let g:rails_subversion=0
-" let g:dbext_default_SQLITE_bin = 'mysql2'
-let g:rails_default_file='config/database.yml'
-" let g:rails_ctags_arguments = ''
-function! SetUpRailsSetting()
-  nmap <buffer><C-C> <Nop>
-  imap <buffer><C-C> <Nop>
-  map <buffer><C-_><C-C> <Nop>
-
-  nmap <buffer><Space>r :R<CR>
-  nmap <buffer><Space>a :A<CR>
-  nmap <buffer><Space>m :Rmodel<Space>
-  nmap <buffer><Space>c :Rcontroller<Space>
-  nmap <buffer><Space>v :Rview<Space>
-  nmap <buffer><Space>s :Rspec<Space>
-  nmap <buffer><Space>p :Rpreview<CR>
-  nmap <buffer><Space>t :Runittest<CR>
-  au FileType ruby,eruby,ruby.rspec let g:neocomplcache_dictionary_filetype_lists = {
-        \'ruby' : $HOME.'/vimfiles/dict/rails.dict',
-        \'eruby' : $HOME.'/vimfiles/dict/rails.dict'
-        \}
-  setl dict+=~/vimfiles/dict/rails.dict
-  setl dict+=~/vimfiles/dict/ruby.dict
-endfunction
-autocmd User Rails call SetUpRailsSetting()
-
 " +++++++++++++++++++++++ シンタックス +++++++++++++++++++++++
 
 " +++++++++++++++++++++++ バッファ +++++++++++++++++++++++
@@ -250,16 +208,16 @@ let g:vimfiler_as_default_explorer = 1
 " vimfiler起動
 nnoremap <silent> vf :VimFilerBufferDir -buffer-name=explorer -split -winwidth=35 -simple -toggle -no-quit<CR>
 
-"------------------------------------
-" vimshell
-"------------------------------------
-" vimshell起動
-nnoremap <silent> vs :VimShell<CR>
-let g:vimshell_user_prompt = 'fnamemodify(getcwd(), ":~")'
-let g:vimshell_enable_smart_case = 1
-autocmd FileType vimshell
-\ call vimshell#altercmd#define('ll', 'ls -al')
-\| call vimshell#altercmd#define('l', 'll')
+" "------------------------------------
+" " vimshell
+" "------------------------------------
+" " vimshell起動
+" nnoremap <silent> vs :VimShell<CR>
+" let g:vimshell_user_prompt = 'fnamemodify(getcwd(), ":~")'
+" let g:vimshell_enable_smart_case = 1
+" autocmd FileType vimshell
+" \ call vimshell#altercmd#define('ll', 'ls -al')
+" \| call vimshell#altercmd#define('l', 'll')
 
 " +++++++++++++++++++++++ 表示 +++++++++++++++++++++++
 "------------------------------------
@@ -578,13 +536,6 @@ let HowmHtml_ConvertFunc = '<SID>MarkdownStr2HTML'
 let HowmHtml_ConvertCmd = 'pandoc -f markdown'
 
 "------------------------------------
-" surround.vim
-"------------------------------------
-let g:surround_{char2nr('e')} = "begin \r end"
-let g:surround_{char2nr('d')} = "do \r end"
-let g:surround_{char2nr("-")} = ":\r"
-
-"------------------------------------
 " YankRing.vim
 "------------------------------------
 " Yankの履歴参照
@@ -595,21 +546,6 @@ nmap ,y :YRShow<CR>
 "------------------------------------
 " RwなどでYankしてるもので置き換える
 map R <Plug>(operator-replace)
-
-"------------------------------------
-" operator-camelize.vim
-"------------------------------------
-" camel-caseへの変換
-map <Leader>u <Plug>(operator-camelize)
-map <Leader>U <Plug>(operator-decamelize)
-
-"------------------------------------
-" toggle.vim
-"------------------------------------
-imap <C-c> <Plug>ToggleI
-nmap <C-c> <Plug>ToggleN
-vmap <C-c> <Plug>ToggleV
-let g:toggle_pairs = { 'and':'or', 'or':'and', 'if':'unless', 'unless':'if', 'yes':'no', 'no':'yes', 'enable':'disable', 'disable':'enable', 'pick':'reword', 'reword':'fixup', 'fixup':'squash', 'squash':'edit', 'edit':'exec', 'exec':'pick' }
 
 "------------------------------------
 " gundo.Vim

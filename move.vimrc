@@ -41,13 +41,8 @@ map <F3> <ESC>:bn<CR>
 map <F4> <ESC>:bnext \| bdelete #<CR>
 command! Bw :bnext \| bdelete #
 
-"<space>jで次の画面。<space>kで前の画面。
-noremap <Space>j <C-f>
-noremap <Space>k <C-b>
-
 " 最後に編集された位置に移動
-nnoremap gb '[
-nnoremap gn ']
+nnoremap gb '.
 
 " 対応する括弧に移動
 nnoremap ( %
