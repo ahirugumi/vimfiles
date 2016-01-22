@@ -75,7 +75,7 @@ if has('conceal')
 endif
 
 " snipet template dirs
-let g:neosnippet#snippets_directory = '~/vimfiles/snipmate-snippets/snippets ~/vimfiles/snippets'
+let g:neosnippet#snippets_directory = '~/vimfiles/bundle/vim-snippets/snippets, ~/vimfiles/snippets/'
 
 " 補完を選択しpopupを閉じる
 " inoremap <expr><C-y> neocomplcache#close_popup()
