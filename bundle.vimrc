@@ -21,6 +21,9 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
   " snipmate
   NeoBundle 'honza/vim-snippets'
+
+  " auto-pairs
+  NeoBundle 'jiangmiao/auto-pairs'
 " ]]]
 
 " 移動 [[[
