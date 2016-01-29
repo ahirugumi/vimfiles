@@ -201,9 +201,6 @@ NeoBundleFetch 'Shougo/neobundle.vim'
  " シンタックスハイライトされた単語をテキストオブジェクトにする ay, iy
  NeoBundle 'kana/vim-textobj-syntax'
 
- " 「foo」 or 【bar】など ajb, ijb
- NeoBundle 'kana/vim-textobj-jabraces'
-
  " インデントされたものをテキストオブジェクトにする
  NeoBundle 'kana/vim-textobj-indent.git'
 
@@ -216,10 +213,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
   " コメント ac, ic
   NeoBundle 'thinca/vim-textobj-comment'
 
-  " 最後に検索されたものをテキストオブジェクトにする
-  NeoBundle 'kana/vim-textobj-lastpat.git'
-
-  " ASCII文字とマルチバイト文字の境界を区切り am, im
+  " ASCII文字とマルチバイト文字の境界を区切り(日本語の中の英語) am, im
   NeoBundle 'deton/textobj-mbboundary.vim'
 
   " 日本語に対応している WORD am, im
@@ -245,9 +239,6 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
   " Python af, if
   NeoBundle 'bps/vim-textobj-python'
-
-  " HTML ahf, ihf
-  NeoBundle 'mjbrownie/html-textobjects'
 
 " ]]]
 call neobundle#end()
