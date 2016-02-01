@@ -225,9 +225,6 @@ NeoBundleFetch 'Shougo/neobundle.vim'
   "  連続したスペース aS, iS
   NeoBundle 'saihoooooooo/vim-textobj-space'
 
-  " Rubyのブロック arr, irr
-  NeoBundle 'rhysd/vim-textobj-ruby'
-
   " 関数の引数 a, , i,
   NeoBundle 'sgur/vim-textobj-parameter'
 
@@ -237,8 +234,11 @@ NeoBundleFetch 'Shougo/neobundle.vim'
   " インデントの空白行 ao, io
   NeoBundle 'glts/vim-textobj-indblock'
 
+  " Rubyのブロック arr, irr
+  " NeoBundle 'rhysd/vim-textobj-ruby'
+
   " Python af, if
-  NeoBundle 'bps/vim-textobj-python'
+  " NeoBundle 'bps/vim-textobj-python'
 
 " ]]]
 call neobundle#end()
