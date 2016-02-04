@@ -124,7 +124,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
 " Unite [[[
   NeoBundle 'Shougo/unite.vim'
-  NeoBundle 'tsukkee/unite-help'
+  NeoBundle 'Shougo/unite-help'
   NeoBundle 'tsukkee/unite-tag'
   NeoBundle 'Shougo/unite-outline'
   NeoBundle 'ujihisa/unite-font'

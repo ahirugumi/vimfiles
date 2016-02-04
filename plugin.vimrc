@@ -423,6 +423,8 @@ nnoremap <silent> [unite]t  :<C-u>Unite tab<CR>
 nnoremap <silent> [unite]w  :<C-u>Unite window<CR>
 " ブックマーク
 nnoremap <silent> [unite]c  :<C-u>Unite bookmark<CR>
+" ヘルプ
+nnoremap <silent> [unite]h  :<C-u>UniteWithCursorWord help<CR>
 
 let g:yankring_zap_keys = ""
 
