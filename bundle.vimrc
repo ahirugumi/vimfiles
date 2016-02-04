@@ -127,7 +127,6 @@ NeoBundleFetch 'Shougo/neobundle.vim'
   NeoBundle 'Shougo/unite-help'
   NeoBundle 'tsukkee/unite-tag'
   NeoBundle 'Shougo/unite-outline'
-  NeoBundle 'ujihisa/unite-font'  " Windows only
   NeoBundle 'tacroe/unite-mark'
   NeoBundle 'thinca/vim-unite-history'
   NeoBundle 'ujihisa/unite-launch'
