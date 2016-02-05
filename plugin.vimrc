@@ -425,6 +425,8 @@ nnoremap <silent> [unite]w  :<C-u>Unite window<CR>
 nnoremap <silent> [unite]c  :<C-u>Unite bookmark<CR>
 " ヘルプ
 nnoremap <silent> [unite]h  :<C-u>UniteWithCursorWord help<CR>
+" Quickfix
+nnoremap <silent> [unite]q  :<C-u>Unite qf<CR>
 
 let g:yankring_zap_keys = ""
 
