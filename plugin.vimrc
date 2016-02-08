@@ -429,6 +429,10 @@ nnoremap <silent> [unite]h  :<C-u>UniteWithCursorWord help<CR>
 nnoremap <silent> [unite]q  :<C-u>Unite qf<CR>
 " マーク
 nnoremap <silent> [unite]k  :<C-u>Unite mark<CR>
+" history command
+nnoremap <silent> [unite]hc  :<C-u>Unite history/command<CR>
+" history search
+nnoremap <silent> [unite]hs  :<C-u>Unite history/search<CR>
 
 let g:yankring_zap_keys = ""
 
