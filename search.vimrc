@@ -6,6 +6,8 @@ set wrapscan   " 最後まで検索したら一番最初に戻る
 set smartcase  " 検索文字列に大文字が含まれている場合は区別して検索
 set incsearch  " インクリメンタルサーチ
 set hlsearch   " 検索文字をハイライト
+set grepformat=%f:%l:%m,%f:%l%m,%f\ \ %l%m,%f
+set grepprg=grep\ -nh
 
 " バックスラッシュやクエスチョンをうまいこと合わせてエスケープする
 cnoremap <expr> / getcmdtype() == '/' ? '\/' : '/'
@@ -17,6 +19,7 @@ nmap <ESC><ESC> :nohlsearch<CR><ESC>
 nnoremap <C-h>      :<C-u>help<Space>
 " カーソル下のキーワードをヘルプでひく
 nnoremap <C-h><C-h> :<C-u>help<Space><C-r><C-w><CR>
+
 " " :Gb <args> でバッファをGrepする
 " command! -nargs=1 Gb :GrepBuffer <args>
 " " カーソル下の単語をGrepBufferする
