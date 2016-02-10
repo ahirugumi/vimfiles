@@ -129,7 +129,6 @@ NeoBundleFetch 'Shougo/neobundle.vim'
   NeoBundle 'Shougo/unite-outline'
   NeoBundle 'tacroe/unite-mark'
   NeoBundle 'thinca/vim-unite-history'
-  NeoBundle 'ujihisa/unite-launch'
   NeoBundle 'sgur/unite-qf'
   NeoBundle 'Shougo/neomru.vim'
 " ]]]

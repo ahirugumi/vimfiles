@@ -404,7 +404,7 @@ nmap <space><space> [unite]
 " 常用セット
 nnoremap <silent> [unite]u  :<C-u>Unite -no-split buffer file_mru<CR>
 " 全部乗せ
-nnoremap <silent> [unite]a  :<C-u>UniteWithCurrentDir -no-split -buffer-name=files buffer file_mru bookmark file<CR>
+nnoremap <silent> [unite]a  :<C-u>UniteWithBufferDir -no-split -buffer-name=files buffer file_mru bookmark file<CR>
 " ファイル一覧
 nnoremap <silent> [unite]f  :<C-u>Unite -no-split -buffer-name=files file<CR>
 " バッファ一覧
