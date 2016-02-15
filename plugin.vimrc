@@ -561,6 +561,16 @@ nmap ,y :YRShow<CR>
 map R <Plug>(operator-replace)
 
 "------------------------------------
+" operator-surround.vim
+"------------------------------------
+"saaw'  カーソル上にある単語を'で囲む
+"sda(   カーソル上にある()で囲まれた者の()を削除する
+"sra('  カーソル上にある(で囲まれたものを'に置換する
+map <silent>sa <Plug>(operator-surround-append)
+map <silent>sd <Plug>(operator-surround-delete)
+map <silent>sr <Plug>(operator-surround-replace)
+
+"------------------------------------
 " gundo.Vim
 "------------------------------------
 nmap U :<C-u>GundoToggle<CR>
