@@ -571,6 +571,12 @@ map <silent>sd <Plug>(operator-surround-delete)
 map <silent>sr <Plug>(operator-surround-replace)
 
 "------------------------------------
+" operator-openbrowser.vim
+"------------------------------------
+"sow    カーソル上にある単語をブラウザで検索する
+map <silent>so <Plug>(operator-openbrowser)
+
+"------------------------------------
 " gundo.Vim
 "------------------------------------
 nmap U :<C-u>GundoToggle<CR>
