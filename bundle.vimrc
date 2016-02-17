@@ -212,7 +212,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
   NeoBundle 'thinca/vim-textobj-comment'
 
   " ASCII文字とマルチバイト文字の境界を区切り(日本語の中の英語) am, im
-  NeoBundle 'deton/textobj-mbboundary.vim'
+  " NeoBundle 'deton/textobj-mbboundary.vim'
 
   " 日本語に対応している WORD am, im
   NeoBundle 'deton/textobj-nonblankchars.vim'
