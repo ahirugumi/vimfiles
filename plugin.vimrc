@@ -573,8 +573,14 @@ map <silent>sr <Plug>(operator-surround-replace)
 "------------------------------------
 " operator-openbrowser.vim
 "------------------------------------
-"sow    カーソル上にある単語をブラウザで検索する
+"soiw    カーソル上にある単語をブラウザで検索する
 map <silent>so <Plug>(operator-openbrowser)
+
+"------------------------------------
+" operator-camelize.vim
+"------------------------------------
+map <silent>sc <Plug>(operator-camelize)
+map <silent>sC <Plug>(operator-decamelize)
 
 "------------------------------------
 " gundo.Vim
