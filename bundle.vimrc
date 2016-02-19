@@ -140,9 +140,6 @@ NeoBundleFetch 'Shougo/neobundle.vim'
   " コメント/アンコメント
   NeoBundle 'emonkak/vim-operator-comment'
 
-  " 選択したオブジェクトをソートする
-  NeoBundle 'emonkak/vim-operator-sort'
-
   " ヤンクしたもので置換する
   NeoBundle 'operator-replace'
 
