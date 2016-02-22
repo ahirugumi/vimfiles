@@ -583,6 +583,11 @@ map <silent>sc <Plug>(operator-camelize)
 map <silent>sC <Plug>(operator-decamelize)
 
 "------------------------------------
+" operator-replace.vim
+"------------------------------------
+map <silent>s <Plug>(operator-replace)
+
+"------------------------------------
 " gundo.Vim
 "------------------------------------
 nmap U :<C-u>GundoToggle<CR>
