@@ -1,5 +1,5 @@
 "set encoding=utf-8
-#set guifont=CodeM:h12
+"set guifont=CodeM:h12
 " フォント設定
 set guifont=Cica Light:h14
 if has('gui_macvim')
