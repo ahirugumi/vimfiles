@@ -259,12 +259,8 @@ let g:lightline = {
         \   'charcode': 'MyCharCode',
         \   'gitgutter': 'MyGitGutter'
         \ },
-        \ 'separator':    { 'left': "・ω)",  'right': "(ω・" },
-        \ 'subseparator': { 'left': "✪",  'right': "✪" },
         \ }
 
-        " \ 'separator': { 'left': '⮀',  'right': '⮂' },
-        " \ 'subseparator': { 'left': '⮁',  'right': '⮃' }
 function! MyModified()
   return &ft =~ 'help\|vimfiler\|gundo' ? '' : &modified ? '+' : &modifiable ? '' : '-'
 endfunction

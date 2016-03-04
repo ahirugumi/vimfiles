@@ -1,8 +1,7 @@
 "set encoding=utf-8
-let g:Powerline_symbols = 'fancy'
 #set guifont=CodeM:h12
 " フォント設定
-set guifont=Ricty:h16
+set guifont=Cica Light:h14
 if has('gui_macvim')
   set showtabline=2  " タブを常に表示
   "set imdisable  " IMを無効化
