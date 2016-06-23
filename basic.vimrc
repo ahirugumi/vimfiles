@@ -77,10 +77,15 @@ nnoremap <silent> <Space>eg  :<C-u>edit $MYGVIMRC<CR>
 set helpfile=$VIMRUNTIME/doc/help.txt
 
 " パス
-set path+=$HOME/mywork
+set path+=.,$HOME/mywork,$HOME/develop
 
 " ファイルタイプ判定をon
 filetype plugin on
 
+" unファイルを一つのディレクトリへ
+set undodir=$HOME/tmp/vim
+
 " bug??
 set notagbsearch
+
+
