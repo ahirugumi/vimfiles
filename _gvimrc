@@ -3,8 +3,9 @@
 " フォント設定
 set guifont=Cica:h14
 if has('gui_macvim')
+  set guifont=Cica:h24  " mac pro 4k対応
   set showtabline=2  " タブを常に表示
-  "set imdisable  " IMを無効化
+  set imdisable  " IMを無効化   " gvimで日本語入力がおかしくなるので復活
   set noimdisableactivate
   "set transparency=30  " 透明度を指定
   set antialias
