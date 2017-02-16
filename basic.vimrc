@@ -26,6 +26,9 @@ set modelines=0                  " モードラインは無効
 set browsedir=buffer             " Exploreの初期ディレクトリをバッファと同じにする
 set t_ut=                        "
 set t_Co=256
+" カーソル形状の変更
+let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 
 " OSのクリップボードを使用する。
 " vimが+clipboardでコンパイルされていないと利用できない。
