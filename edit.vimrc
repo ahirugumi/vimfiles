@@ -8,6 +8,10 @@ set infercase              " 補完するときに大文字小文字を区別し
 
 inoremap <silent> <ESC> <ESC>:set iminsert=0<CR>
 
+" コロン、セミコロン入れ替え(USキーボード対応)
+nnoremap ; :
+nnoremap : ;
+
 " Tabキーを空白に変換
 set expandtab
 " <C-t>で改行
