@@ -14,7 +14,7 @@ cnoremap <expr> / getcmdtype() == '/' ? '\/' : '/'
 cnoremap <expr> ? getcmdtype() == '?' ? '\?' : '?'
 
 " ハイライト消去
-nmap <ESC><ESC> :nohlsearch<CR><ESC>
+nnoremap <Esc><Esc> :nohlsearch<CR>
 " Ctrl-hでヘルプ
 nnoremap <C-h>      :<C-u>help<Space>
 " カーソル下のキーワードをヘルプでひく
