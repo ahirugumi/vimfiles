@@ -33,13 +33,20 @@ nmap 9 $
 " insert mode でjjでesc
 inoremap jj <Esc>
 
-nnoremap <silent>bp :bprevious<CR> " 前のバッファ
-nnoremap <silent>bn :bnext<CR>     " 次のバッファ
-nnoremap <silent>bb :b#<CR>        " 直前のバッファ
-nnoremap <silent>bf :bf<CR>        " バッファリストの最初のバッファ
-nnoremap <silent>bl :bl<CR>        " バッファリストの最後のバッファ
-nnoremap <silent>bm :bm<CR>        " 変更中のバッファ
-nnoremap <silent>bd :bdelete<CR>   " バッファ削除
+" 前のバッファ
+nnoremap bp :bprevious<CR>
+" 次のバッファ
+nnoremap bn :bnext<CR>
+" 直前のバッファ
+nnoremap bb :b#<CR>
+" バッファリストの最初のバッファ
+nnoremap bf :bf<CR>
+" バッファリストの最後のバッファ
+nnoremap bl :bl<CR>
+" 変更中のバッファ
+nnoremap bm :bm<CR>
+" バッファ削除
+nnoremap bd :bdelete<CR>
 
 " 最後に編集された位置に移動
 nnoremap gb '.
