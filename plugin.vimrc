@@ -609,4 +609,17 @@ vmap ab <Plug>(textobj-multiblock-a)
 vmap ib <Plug>(textobj-multiblock-i)
 
 
-
+"------------------------------------
+" evervim
+"------------------------------------
+nnoremap <silent> ,el :<C-u>EvervimNotebookList<CR>
+nnoremap <silent> ,eT :<C-u>EvervimListTags<CR>
+nnoremap <silent> ,en :<C-u>EvervimCreateNote<CR>
+nnoremap <silent> ,eb :<C-u>EvervimOpenBrowser<CR>
+nnoremap <silent> ,ec :<C-u>EvervimOpenClient<CR>
+nnoremap ,es :<C-u>EvervimSearchByQuery<SPACE>
+nnoremap <silent> ,et :<C-u>EvervimSearchByQuery<SPACE>tag:todo -tag:done -tag:someday<CR>
+nnoremap <silent> ,eta :<C-u>EvervimSearchByQuery<SPACE>tag:todo -tag:done<CR>
+let g:evervim_splitoption='v'
+" 勝手にfiletypeがmarkdownにならないようにする(evervim)
+autocmd BufNewFile,BufRead __EVERVIM_NOTE__ set filetype=mkd

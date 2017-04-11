@@ -30,3 +30,5 @@ source ~/vimfiles/plugin.vimrc
 source ~/vimfiles/completion.vimrc
 " その他の設定
 source ~/vimfiles/misc.vimrc
+
+let g:evervim_devtoken='S=s386:U=9f3e966:E=162b5c678a9:C=15b5e154928:P=1cd:A=en-devtoken:V=2:H=25f3881466c732750567c39a3f322e17'

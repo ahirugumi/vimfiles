@@ -63,6 +63,8 @@ NeoBundleFetch 'Shougo/neobundle.vim'
   " markdown
   NeoBundle 'tpope/vim-markdown'
 
+  NeoBundle 'kurocode25/mdforvim'
+
   " JavaScript
   NeoBundle 'JavaScript-syntax'
 
@@ -235,6 +237,8 @@ NeoBundleFetch 'Shougo/neobundle.vim'
   " Python af, if
   " NeoBundle 'bps/vim-textobj-python'
 
+  " evernoteをvimで編集
+  NeoBundle 'kakkyz81/evervim'
 " ]]]
 call neobundle#end()
 filetype plugin indent on
